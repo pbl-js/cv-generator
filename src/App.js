@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+
+import GlobalStyle from "./theme/GlobalStyle";
+import PdfGenerator from "./components/pdfGenerator/PdfGenerator";
+
+const theme = {
+  primary: "black"
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <>
+          {/* <h1>Working</h1>
+          <Button width="500px">Siema</Button>
+          <Button secondary>Siema</Button> */}
+          <PdfGenerator />
+        </>
+      </ThemeProvider>
     </div>
   );
 }
