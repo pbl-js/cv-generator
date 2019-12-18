@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-    @import url('bootstrap/dist/css/bootstrap.min.css');
     
     *, *::before, *::after {
         box-sizing: border-box;

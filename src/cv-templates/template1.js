@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Page,
-  Document,
-  Font,
-  View,
-  StyleSheet,
-  Text,
-  Image
-} from "@react-pdf/renderer";
+import { Page, Document, Font, View } from "@react-pdf/renderer";
+import PropTypes from "prop-types";
 import styled from "@react-pdf/styled-components";
 
 import selfie from "./selfie.png";
@@ -183,7 +176,7 @@ const ContactsComponent = contacts => {
       <Line small bold />
       <AsideSmallConteiner>
         {contacts.map(contact => (
-          <ContactType>
+          <ContactType key={contact.id}>
             <ContactTypeCircle>{iconType(contact.type)}</ContactTypeCircle>
             <Paragraph>{contact.body}</Paragraph>
           </ContactType>
@@ -201,9 +194,9 @@ const EducationsComponent = educations => {
       <Line small bold />
       <AsideSmallConteiner>
         {educations.map(education => {
-          const { degree, academy, years } = education;
+          const { id, degree, academy, years } = education;
           return (
-            <EducationItem>
+            <EducationItem key={id}>
               <EducationItemHeader>{degree}</EducationItemHeader>
               <Paragraph>{academy}</Paragraph>
               <Paragraph>{`${years[0]} - ${years[1]}`}</Paragraph>
@@ -239,9 +232,9 @@ const SkillsComponent = skills => {
 
       <AsideSmallConteiner>
         {skills.map(skill => (
-          <SkillItem>
+          <SkillItem key={skill.id}>
             <SkillIcon />
-            <Paragraph>{skill}</Paragraph>
+            <Paragraph>{skill.name}</Paragraph>
           </SkillItem>
         ))}
       </AsideSmallConteiner>
@@ -287,13 +280,13 @@ const ExperiencesComponent = experiences => {
       <Line small bold dark />
 
       {experiences.map(experience => {
-        const { position, company, city, description } = experience;
+        const { id, position, company, city, description } = experience;
         return (
-          <>
+          <View key={id}>
             <ExperienceHeader dark>{position}</ExperienceHeader>
             <CompanyName dark>{`${company} - ${city}`}</CompanyName>
             <Description dark>{description}</Description>
-          </>
+          </View>
         );
       })}
     </>
@@ -301,14 +294,7 @@ const ExperiencesComponent = experiences => {
 };
 
 const MyDocument = ({ data }) => {
-  const {
-    contacts,
-    educations,
-    skills,
-    aboutMe,
-    experiences,
-    personData
-  } = data;
+  const { contacts, educations, skills, aboutMe, experiences, mainInfo } = data;
   return (
     <Document>
       <Page size="A4">
@@ -323,7 +309,7 @@ const MyDocument = ({ data }) => {
             {SkillsComponent(skills)}
           </Aside>
           <Main>
-            {MainHeaderComponent(personData)}
+            {MainHeaderComponent(mainInfo)}
             <MainContainer>
               {AboutMeComponent(aboutMe)}
               <Line dark />
@@ -334,6 +320,48 @@ const MyDocument = ({ data }) => {
       </Page>
     </Document>
   );
+};
+
+MyDocument.propTypes = {
+  data: PropTypes.shape({
+    mainInfo: PropTypes.shape({
+      photo: PropTypes.any,
+      name: PropTypes.string.isRequired,
+      surname: PropTypes.string.isRequired,
+      job: PropTypes.string
+    }),
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        type: PropTypes.oneOf(["phone", "email", "home"]).isRequired,
+        body: PropTypes.string.isRequired
+      })
+    ),
+    education: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        degree: PropTypes.string.isRequired,
+        academy: PropTypes.string.isRequired,
+        years: PropTypes.arrayOf([PropTypes.number])
+      })
+    ),
+    skills: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+      })
+    ),
+    aboutMe: PropTypes.string,
+    experiences: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        position: PropTypes.string.isRequired,
+        company: PropTypes.string.isRequired,
+        city: PropTypes.string,
+        description: PropTypes.string
+      })
+    )
+  })
 };
 
 export default MyDocument;

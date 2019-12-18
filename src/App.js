@@ -1,9 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "./theme/GlobalStyle";
 import PdfGenerator from "./components/pdfGenerator/PdfGenerator";
+import PersonDataPicker from "./components/organisms/PersonDataPicker";
+
+import { Provider } from "react-redux";
+import store from "./redux/store/";
 
 const theme = {
   primary: "black"
@@ -12,15 +15,16 @@ const theme = {
 function App() {
   return (
     <div>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <>
-          {/* <h1>Working</h1>
-          <Button width="500px">Siema</Button>
-          <Button secondary>Siema</Button> */}
-          <PdfGenerator />
-        </>
-      </ThemeProvider>
+      <Provider store={store}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <>
+            <h1>Hello world</h1>
+            <PersonDataPicker />
+            <PdfGenerator />
+          </>
+        </ThemeProvider>
+      </Provider>
     </div>
   );
 }
