@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: "Montserrat", sans-serif;
         font-size: 1.6rem;
+        background-color: #F7F7F7;
         /* Ale nadal bazową wielkością fontu jest 16px */
     }
 `;

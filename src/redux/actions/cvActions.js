@@ -4,3 +4,10 @@ export const addMainInfo = mainInfo => {
     payload: mainInfo
   };
 };
+
+export const addContacts = contacts => {
+  return {
+    type: "ADD_CONTACTS",
+    payload: contacts
+  };
+};
