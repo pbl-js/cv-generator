@@ -10,18 +10,18 @@ class PdfGenerator extends PureComponent {
   render() {
     return (
       <div>
-        {/* <PDFViewer width="500px" height="750px">
+        <PDFViewer width="100%" height="1000px">
           <TemplateHarvard data={this.props} />
-        </PDFViewer> */}
+        </PDFViewer>
         <div>
-          <PDFDownloadLink
+          {/* <PDFDownloadLink
             document={<TemplateHarvard data={this.props} />}
             fileName="somename.pdf"
           >
             {({ blob, url, loading, error }) =>
               loading ? "Loading document..." : <button>Download</button>
             }
-          </PDFDownloadLink>
+          </PDFDownloadLink> */}
         </div>
       </div>
     );

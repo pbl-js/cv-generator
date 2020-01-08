@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -23,12 +23,45 @@ const MainDataPicker = props => {
     home: ""
   });
 
+  const { photo, name, surname, job, phone, email, home } = formData;
+
+  useEffect(() => {
+    setFormData({
+      name: localStorage.getItem("name"),
+      surname: localStorage.getItem("surname"),
+      job: localStorage.getItem("job"),
+      phone: localStorage.getItem("phone"),
+      email: localStorage.getItem("email"),
+      home: localStorage.getItem("home")
+    });
+  }, []);
+
   const handleInputChange = e => {
-    console.log(formData);
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    localStorage.setItem([e.target.name], e.target.value);
   };
 
-  const { photo, name, surname, job, phone, email, home } = formData;
+  const saveData = () => {
+    props.addMainInfo({ photo, name, surname, job });
+    const contactsArray = [
+      {
+        id: 0,
+        type: "phone",
+        body: phone
+      },
+      {
+        id: 1,
+        type: "email",
+        body: email
+      },
+      {
+        id: 2,
+        type: "home",
+        body: home
+      }
+    ];
+    props.addContacts(contactsArray);
+  };
 
   return (
     <Container>
@@ -105,14 +138,7 @@ const MainDataPicker = props => {
         </label>
         <br />
 
-        <button
-          onClick={() => {
-            props.addMainInfo({ photo, name, surname, job });
-            props.addContacts({ phone, email, home });
-          }}
-        >
-          Dodaj informacje
-        </button>
+        <button onClick={saveData}>Dodaj informacje</button>
       </div>
     </Container>
   );
@@ -125,8 +151,4 @@ const mapDispatchToProps = dispatch => ({
   addContacts: contacts => dispatch(addContacts(contacts))
 });
 
-const mapStateToProps = state => {
-  return state.mainInfo;
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainDataPicker);
+export default connect(null, mapDispatchToProps)(MainDataPicker);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Page, Document, Font, View } from "@react-pdf/renderer";
+import ReactPDF, { Page, Document, Font, View } from "@react-pdf/renderer";
 import PropTypes from "prop-types";
 import styled from "@react-pdf/styled-components";
 
@@ -101,6 +101,28 @@ const MainContainer = styled.View`
   width: 100%;
   display: flex;
   padding: 30px;
+`;
+
+const StyledHeader = styled(Header)`
+  margin-top: 30px;
+`;
+
+const ExperienceItemContainer = styled.View`
+  margin-top: 20px;
+`;
+
+const ExperienceHeader = styled(Header)`
+  font-size: 11px;
+  letter-spacing: 1px;
+`;
+const CompanyName = styled(Paragraph)`
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  font-size: 12px;
+`;
+
+const Description = styled(Paragraph)`
+  margin-bottom: 15px;
 `;
 
 const MainHeaderComponent = ({ name, surname, job }) => {
@@ -256,24 +278,6 @@ const AboutMeComponent = aboutMe => {
 };
 
 const ExperiencesComponent = experiences => {
-  const StyledHeader = styled(Header)`
-    margin-top: 30px;
-  `;
-  const ExperienceHeader = styled(Header)`
-    font-size: 11px;
-    margin-top: 20px;
-    letter-spacing: 1px;
-  `;
-  const CompanyName = styled(Paragraph)`
-    text-transform: capitalize;
-    margin-bottom: 5px;
-    font-size: 12px;
-  `;
-
-  const Description = styled(Paragraph)`
-    margin-bottom: 15px;
-  `;
-
   return (
     <>
       <StyledHeader dark>Doświadczenie</StyledHeader>
@@ -282,11 +286,11 @@ const ExperiencesComponent = experiences => {
       {experiences.map(experience => {
         const { id, position, company, city, description } = experience;
         return (
-          <View key={id}>
+          <ExperienceItemContainer key={id} wrap={false}>
             <ExperienceHeader dark>{position}</ExperienceHeader>
             <CompanyName dark>{`${company} - ${city}`}</CompanyName>
             <Description dark>{description}</Description>
-          </View>
+          </ExperienceItemContainer>
         );
       })}
     </>
@@ -297,7 +301,7 @@ const MyDocument = ({ data }) => {
   const { contacts, educations, skills, aboutMe, experiences, mainInfo } = data;
   return (
     <Document>
-      <Page size="A4">
+      <Page>
         <Container>
           <Aside>
             <Foto src={selfie} />
