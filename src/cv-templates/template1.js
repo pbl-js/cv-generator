@@ -1,5 +1,5 @@
 import React from "react";
-import ReactPDF, { Page, Document, Font, View } from "@react-pdf/renderer";
+import { Page, Document, Font } from "@react-pdf/renderer";
 import PropTypes from "prop-types";
 import styled from "@react-pdf/styled-components";
 

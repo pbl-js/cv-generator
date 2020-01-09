@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../atoms/Header";
 
 const Wrapper = styled.footer`
   background-color: #383838;

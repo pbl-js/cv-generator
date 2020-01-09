@@ -31,7 +31,7 @@ const MainTemplate = ({ children }) => {
       </Logo>
       {children}
       <PurpleBackground />
-      <Footer />
+      {/* <Footer /> */}
     </StyledWrapper>
   );
 };

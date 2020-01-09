@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { routes } from "../../routes/routes";
 
 import CircleButtonIcon from "../atoms/CircleButtonIcon";
@@ -70,6 +70,9 @@ const Navigation = ({ progressData, handlePageChange }) => {
   );
 };
 
-Navigation.propTypes = {};
+Navigation.propTypes = {
+  progressData: PropTypes.object.isRequired,
+  handlePageChange: PropTypes.func.isRequired
+};
 
 export default Navigation;

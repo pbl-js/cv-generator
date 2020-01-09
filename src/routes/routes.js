@@ -6,3 +6,11 @@ export const routes = {
   template: "/template",
   generateCv: "/download"
 };
+
+export const creatorRoutes = [
+  routes.personData,
+  routes.education,
+  routes.experience,
+  routes.template,
+  routes.generateCv
+];
