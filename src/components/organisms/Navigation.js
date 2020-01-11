@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { routes } from "../../routes/routes";
+import { creatorRoutes } from "../../routes/routes";
 
 import CircleButtonIcon from "../atoms/CircleButtonIcon";
+import Header from "../atoms/Header";
+import ProgressBar from "../atoms/ProgressBar";
 
 import { Person } from "styled-icons/octicons/Person";
 import { School } from "styled-icons/material/School";
@@ -13,66 +15,68 @@ import { Customize } from "styled-icons/boxicons-solid/Customize";
 import { Download } from "styled-icons/remix-fill/Download";
 
 const StyledWrapper = styled.div`
+  margin: 20px 0;
+`;
+
+const InnerWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
 `;
 
-const Navigation = ({ progressData, handlePageChange }) => {
+const StyledHeader = styled(Header)`
+  text-align: left;
+  margin-bottom: 15px;
+`;
+
+const Navigation = ({ progressData, handlePageChange, actualPage }) => {
+  const iconType = index => {
+    switch (index) {
+      case 1:
+        return <Person />;
+      case 2:
+        return <School />;
+      case 3:
+        return <Brain />;
+      case 4:
+        return <Customize />;
+      case 5:
+        return <Download />;
+      default:
+        return <Person />;
+    }
+  };
   return (
-    <div>
-      <StyledWrapper>
-        <CircleButtonIcon
-          as={NavLink}
-          to={routes.personData}
-          active={progressData.progress >= 1 ? true : false}
-          onClick={() => handlePageChange(1)}
-        >
-          <Person />
-        </CircleButtonIcon>
-
-        <CircleButtonIcon
-          as={NavLink}
-          to={routes.education}
-          active={progressData.progress >= 2 ? true : false}
-          onClick={() => handlePageChange(2)}
-        >
-          <School />
-        </CircleButtonIcon>
-
-        <CircleButtonIcon
-          as={NavLink}
-          to={routes.experience}
-          active={progressData.progress >= 3 ? true : false}
-          onClick={() => handlePageChange(3)}
-        >
-          <Brain />
-        </CircleButtonIcon>
-
-        <CircleButtonIcon
-          as={NavLink}
-          to={routes.template}
-          active={progressData.progress >= 4 ? true : false}
-          onClick={() => handlePageChange(4)}
-        >
-          <Customize />
-        </CircleButtonIcon>
-
-        <CircleButtonIcon
-          as={NavLink}
-          to={routes.generateCv}
-          active={progressData.progress >= 5 ? true : false}
-          onClick={() => handlePageChange(5)}
-        >
-          <Download />
-        </CircleButtonIcon>
-      </StyledWrapper>
-    </div>
+    <StyledWrapper>
+      <StyledHeader white="routerError">{actualPage}</StyledHeader>
+      <InnerWrapper>
+        {creatorRoutes.map((item, index) => {
+          return (
+            <CircleButtonIcon
+              as={NavLink}
+              to={item.url}
+              active={progressData.progress >= index + 1 ? true : false}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {iconType(index + 1)}
+            </CircleButtonIcon>
+          );
+        })}
+        <ProgressBar>
+          <ProgressBar
+            progress={progressData.progress}
+            total={creatorRoutes.length}
+          />
+        </ProgressBar>
+      </InnerWrapper>
+    </StyledWrapper>
   );
 };
 
 Navigation.propTypes = {
   progressData: PropTypes.object.isRequired,
-  handlePageChange: PropTypes.func.isRequired
+  handlePageChange: PropTypes.func.isRequired,
+  actualPage: PropTypes.string.isRequired
 };
 
 export default Navigation;

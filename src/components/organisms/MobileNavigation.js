@@ -28,7 +28,6 @@ const MobileNavigation = ({ progressData, handlePageChange, history }) => {
   const { progress } = progressData;
 
   const nextOrPreviousPage = type => {
-    console.log("work");
     if (type === "+") {
       if (progress < 5) {
         handlePageChange(progress + 1);

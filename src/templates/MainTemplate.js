@@ -12,6 +12,7 @@ const Logo = styled(BigHeader)`
   text-align: center;
   width: 100%;
   display: block;
+  font-size: ${({ theme }) => theme.fontSize.mobile.l};
 `;
 
 const StyledWrapper = styled.div`
@@ -20,7 +21,7 @@ const StyledWrapper = styled.div`
   position: relative;
   min-height: 100vh;
   padding-bottom: 50px;
-  padding-top: 20px;
+  padding-top: 10px;
 `;
 
 const MainTemplate = ({ children }) => {
@@ -31,7 +32,7 @@ const MainTemplate = ({ children }) => {
       </Logo>
       {children}
       <PurpleBackground />
-      {/* <Footer /> */}
+      <Footer />
     </StyledWrapper>
   );
 };

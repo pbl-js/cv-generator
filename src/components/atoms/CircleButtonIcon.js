@@ -13,6 +13,8 @@ const Button = styled.button`
     active ? theme.color.orange : theme.color.extraLightPurple};
   color: ${({ theme, active }) => (active ? "white" : theme.color.lightPurple)};
   cursor: ${({ active }) => (active ? "" : "pointer")};
+  z-index: 2;
+  transition: 0.2s;
   svg {
     width: 35%;
   }
