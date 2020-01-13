@@ -6,6 +6,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   height: 35px;
+  min-height: 35px;
   width: 130px;
   font-size: ${({ theme }) => theme.fontSize.mobile.s};
   font-weight: ${({ theme }) => theme.fontWeight.bold};

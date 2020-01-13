@@ -10,16 +10,14 @@ import Button from "../../components/atoms/Button";
 import { Close } from "styled-icons/material/Close";
 import { School } from "styled-icons/material/School";
 
-const AddSchool = ({ handlePopupShow, popups }) => {
+const AddSchool = ({ handlePopupShow }) => {
   return (
     <>
       <PopUpBox>
         <BoxHeader>
           <School />
           <h1>Wykształcenie</h1>
-          <Close
-            onClick={() => handlePopupShow("education", popups.education)}
-          />
+          <Close onClick={handlePopupShow} />
         </BoxHeader>
 
         <TextInput label="Poziom wykształcenia*" placeholder="Np: Inżynier" />
@@ -37,12 +35,6 @@ const AddSchool = ({ handlePopupShow, popups }) => {
         <TextInput label="Rok rozpoczęcia*" placeholder="Np: 2012" />
 
         <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
-        <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
-        <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
-        <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
-        <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
-        <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
-        <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
 
         <Button>Zapisz</Button>
       </PopUpBox>
@@ -52,8 +44,8 @@ const AddSchool = ({ handlePopupShow, popups }) => {
 };
 
 AddSchool.propTypes = {
-  handlePopupShow: PropTypes.func.isRequired,
-  popups: PropTypes.object.isRequired
+  // handlePopupShow: PropTypes.func.isRequired,
+  // popups: PropTypes.object.isRequired
 };
 
 export default AddSchool;

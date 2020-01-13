@@ -2,11 +2,12 @@ import styled from "styled-components";
 import Box from "./Box";
 
 // Avaible Props:
-const BackgroundLayer = styled(Box)`
+const PopUpBox = styled(Box)`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 850px;
   z-index: 999;
   margin: 0;
   height: 100%;
@@ -14,4 +15,4 @@ const BackgroundLayer = styled(Box)`
   border-radius: 0;
 `;
 
-export default BackgroundLayer;
+export default PopUpBox;

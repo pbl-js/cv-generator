@@ -98,14 +98,6 @@ const PersonData = props => {
 
         <TextInput label="Email*" placeholder="Np: johndoe@darmowecv.pl" />
       </Box>
-
-      <Box>
-        <BoxHeader>
-          <Person />
-          <h1>Dane kontaktowe</h1>
-          <Settings />
-        </BoxHeader>
-      </Box>
     </>
   );
 };

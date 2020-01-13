@@ -3,31 +3,28 @@ import React from "react";
 const withPopup = WrappedComponent => {
   return class WithCollapse extends React.Component {
     state = {
-      education: false,
-      skills: false,
-      language: false
+      isOpen: false
     };
 
     componentDidUpdate() {
-      const { education, experience, language } = this.state;
-      if (education || experience || language) {
+      if (this.state.isOpen) {
         document.body.style.overflow = "hidden";
       } else {
         document.body.style.overflow = "unset";
       }
     }
 
-    handlePopupShow = (type, value) => {
-      this.setState({
-        [type]: !value
-      });
+    handlePopupShow = () => {
+      this.setState(prevState => ({
+        isOpen: !prevState.isOpen
+      }));
     };
 
     render() {
       return (
         <WrappedComponent
           handlePopupShow={this.handlePopupShow}
-          popups={this.state}
+          isOpen={this.state.isOpen}
           {...this.props}
         />
       );
