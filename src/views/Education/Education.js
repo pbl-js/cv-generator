@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+
+import withPopup from "../../hoc/withPopup";
 
 import Box from "../../components/atoms/Box";
 import Button from "../../components/atoms/Button";
@@ -24,19 +26,7 @@ const SkillWrapper = styled.div`
   margin-bottom: 5px;
 `;
 
-const Education = props => {
-  const [popups, setPopups] = useState({
-    education: false,
-    skills: false
-  });
-
-  const handlePopupShow = (type, value) => {
-    setPopups({
-      ...popups,
-      [type]: !value
-    });
-  };
-
+const Education = ({ popups, handlePopupShow }) => {
   return (
     <>
       {popups.education && (
@@ -118,4 +108,4 @@ const Education = props => {
   );
 };
 
-export default Education;
+export default withPopup(Education);

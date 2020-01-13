@@ -53,7 +53,7 @@ const AddSchool = ({ handlePopupShow, popups }) => {
 
 AddSchool.propTypes = {
   handlePopupShow: PropTypes.func.isRequired,
-  popups: PropTypes.array.isRequired
+  popups: PropTypes.object.isRequired
 };
 
 export default AddSchool;
