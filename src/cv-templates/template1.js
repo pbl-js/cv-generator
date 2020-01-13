@@ -304,7 +304,7 @@ const MyDocument = ({ data }) => {
       <Page>
         <Container>
           <Aside>
-            <Foto src={selfie} />
+            <Foto src={mainInfo.photo} />
 
             {ContactsComponent(contacts)}
 

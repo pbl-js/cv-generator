@@ -20,7 +20,9 @@ const StyledWrapper = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.mediaQueries.tablet}) {
-    display: none;
+    position: relative;
+    background-color: transparent;
+    margin-top: 10px;
   }
 `;
 

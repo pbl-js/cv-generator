@@ -10,7 +10,7 @@ import CreatorTemplate from "../templates/CreatorTemplate";
 import LandingPage from "./LandingPage";
 
 import PersonData from "./PersonData";
-import Education from "./Education";
+import Education from "./Education/Education";
 import Experience from "./Experience";
 import Template from "./Template";
 import Download from "./Download";

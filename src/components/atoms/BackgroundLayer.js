@@ -1,7 +1,6 @@
 import styled from "styled-components";
-// import Background from "../../assets/images/under.svg";
 
-// Avaible Props: white secondary
+// Avaible Props:
 const BackgroundLayer = styled.img`
   position: absolute;
   top: 0;

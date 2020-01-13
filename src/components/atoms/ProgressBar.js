@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// Avaible Props: white secondary
+// Avaible Props: progress total
 const ProgressBar = styled.div`
   position: absolute;
   top: 50%;
