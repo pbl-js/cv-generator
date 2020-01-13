@@ -44,8 +44,7 @@ const AddSchool = ({ handlePopupShow }) => {
 };
 
 AddSchool.propTypes = {
-  // handlePopupShow: PropTypes.func.isRequired,
-  // popups: PropTypes.object.isRequired
+  handlePopupShow: PropTypes.func.isRequired
 };
 
 export default AddSchool;
