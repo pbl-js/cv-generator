@@ -9,7 +9,7 @@ import MainTemplate from "../templates/MainTemplate";
 import CreatorTemplate from "../templates/CreatorTemplate";
 import LandingPage from "./LandingPage";
 
-import PersonData from "./PersonData";
+import PersonData from "./PersonData/PersonData";
 import Education from "./Education/Education";
 import Experience from "./Experience";
 import Template from "./Template";
