@@ -11,7 +11,7 @@ import LandingPage from "./LandingPage";
 
 import PersonData from "./PersonData/PersonData";
 import Education from "./Education/Education";
-import Experience from "./Experience";
+import Experience from "./Experience/Experience";
 import Template from "./Template";
 import Download from "./Download";
 

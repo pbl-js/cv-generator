@@ -32,23 +32,6 @@ const InfoBox = styled.div`
         return theme.color.darkGray;
     }
   }};
-
-  svg {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    cursor: pointer;
-  }
-
-  svg:last-of-type {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 50px;
-    top: 20px;
-  }
 `;
 
 export default InfoBox;

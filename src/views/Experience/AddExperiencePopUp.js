@@ -10,7 +10,7 @@ import Button from "../../components/atoms/Button";
 import { Close } from "styled-icons/material/Close";
 import { School } from "styled-icons/material/School";
 
-const AddSchoolPopUp = ({ handlePopupShow }) => {
+const AddExperiencePopUp = ({ handlePopupShow }) => {
   return (
     <>
       <PopUpBox>
@@ -43,8 +43,8 @@ const AddSchoolPopUp = ({ handlePopupShow }) => {
   );
 };
 
-AddSchoolPopUp.propTypes = {
+AddExperiencePopUp.propTypes = {
   handlePopupShow: PropTypes.func.isRequired
 };
 
-export default AddSchoolPopUp;
+export default AddExperiencePopUp;

@@ -1,31 +1,32 @@
 import React from "react";
 
-import AddSchoolPopUp from "./AddSchoollPopUp";
 import withPopup from "../../hoc/withPopup";
+import AddExperiencePopUp from "./AddExperiencePopUp";
 
 import Box from "../../components/atoms/Box";
-import BoxHeader from "../../components/atoms/BoxHeader";
-import Button from "../../components/atoms/Button";
 import InfoBox from "../../components/atoms/InfoBox";
 import ItemBox from "../../components/molecules/ItemBox";
+import BoxHeader from "../../components/atoms/BoxHeader";
+import Button from "../../components/atoms/Button";
 
-import { School } from "styled-icons/material/School";
+import { Brain } from "styled-icons/fa-solid/Brain";
 import { Settings } from "styled-icons/material/Settings";
 
-const AddSchool = ({ handlePopupShow, isOpen }) => {
-  console.log(isOpen);
+const AddExperience = ({ handlePopupShow, isOpen }) => {
   return (
     <>
       <Box>
         <BoxHeader>
-          <School />
-          <h1>Wykształcenie</h1>
+          <Brain />
+          <h1>Doświadczenie</h1>
           <Settings />
         </BoxHeader>
 
         <InfoBox color="orange">
-          Wpisz ostatnio ukończoną szkołę. Jeśli masz wykształcenie wyższe lub
-          podyplomowe, podaj nazwę uczelni i kierunek studiów.
+          Wymień najważniejsze obowiązki w danej pracy i podkreśl swoje
+          sukcesy.Postaraj się, żeby z Twojej historii zatrudnienia wynikało, że
+          masz doświadczenie i kwalifikacje zgodne z wymaganiami potencjalnego
+          pracodawcy.
         </InfoBox>
 
         <ItemBox handleEdit={handlePopupShow}>
@@ -44,9 +45,9 @@ const AddSchool = ({ handlePopupShow, isOpen }) => {
         <Button onClick={handlePopupShow}>Dodaj pozycję</Button>
       </Box>
 
-      {isOpen && <AddSchoolPopUp handlePopupShow={handlePopupShow} />}
+      {isOpen && <AddExperiencePopUp handlePopupShow={handlePopupShow} />}
     </>
   );
 };
 
-export default withPopup(AddSchool);
+export default withPopup(AddExperience);
