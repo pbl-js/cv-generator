@@ -10,7 +10,7 @@ class PdfGenerator extends PureComponent {
   render() {
     return (
       <div>
-        <PDFViewer width="100%" height="1000px">
+        <PDFViewer width="100%" height="500px">
           <TemplateHarvard data={this.props} />
         </PDFViewer>
         <div>

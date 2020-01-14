@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { withRouter } from "react-router";
 import { creatorRoutes } from "../routes/routes";
 
+import withPopUp from "../hoc/withPopup";
+import ShowCvPopUp from "./ShowCvPopUp";
 import Navigation from "../components/organisms/Navigation";
 import MobileNavigation from "../components/organisms/MobileNavigation";
+import PreviewIcon from "../components/atoms/PreviewIcon";
 
 const StyledWrapper = styled.div`
   padding: 0 10px 10px 10px;
@@ -12,7 +15,13 @@ const StyledWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const CreatorTemplate = ({ history, location, children }) => {
+const CreatorTemplate = ({
+  history,
+  location,
+  children,
+  handlePopupShow,
+  isOpen
+}) => {
   const [progressData, setProgressData] = useState({
     progress: 1
   });
@@ -50,8 +59,10 @@ const CreatorTemplate = ({ history, location, children }) => {
         progressData={progressData}
         handlePageChange={handlePageChange}
       />
+      {progressData.progress < 5 && <PreviewIcon onClick={handlePopupShow} />}
+      {isOpen && <ShowCvPopUp handlePopupShow={handlePopupShow} />}
     </StyledWrapper>
   );
 };
 
-export default withRouter(CreatorTemplate);
+export default withRouter(withPopUp(CreatorTemplate));
