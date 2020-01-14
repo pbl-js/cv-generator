@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFViewer } from "@react-pdf/renderer";
 import PropTypes from "prop-types";
 
 import TemplateHarvard from "../../cv-templates/template1";

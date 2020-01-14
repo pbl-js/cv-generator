@@ -6,7 +6,7 @@ export const routes = {
   template: "/template",
   generateCv: "/download"
 };
-
+// routerError
 export const creatorRoutes = [
   { name: "Dane Osobowe", url: routes.personData },
   { name: "Edukacja", url: routes.education },

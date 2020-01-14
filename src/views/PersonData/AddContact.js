@@ -47,9 +47,14 @@ const AddContact = ({ addContacts }) => {
         dostaniesz od nas żadnej wiadomości na podany adres email!
       </InfoBox>
 
-      <TextInput label="Telefon*" placeholder="Np: 439 327 237" />
+      <TextInput
+        label="Telefon*"
+        placeholder="Np: 439 327 237"
+        onChange={handleInputChange}
+      />
 
       <TextInput label="Email*" placeholder="Np: johndoe@darmowecv.pl" />
+      <button onClick={saveData}>Zapisz</button>
     </Box>
   );
 };

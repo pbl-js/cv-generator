@@ -53,9 +53,10 @@ const Navigation = ({ progressData, handlePageChange, actualPage }) => {
         {creatorRoutes.map((item, index) => {
           return (
             <CircleButtonIcon
+              key={item.name}
               as={NavLink}
               to={item.url}
-              active={progressData.progress >= index + 1 ? true : false}
+              active={progressData.progress >= index + 1 ? "routerError" : null}
               onClick={() => handlePageChange(index + 1)}
             >
               {iconType(index + 1)}

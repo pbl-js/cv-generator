@@ -3,7 +3,6 @@ import { Page, Document, Font } from "@react-pdf/renderer";
 import PropTypes from "prop-types";
 import styled from "@react-pdf/styled-components";
 
-import selfie from "./selfie.png";
 import phone from "../assets/icons/phone.png";
 import email from "../assets/icons/email.png";
 import home from "../assets/icons/home.png";

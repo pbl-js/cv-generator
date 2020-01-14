@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import TextInput from "../../components/organisms/TextInput";
 import BoxHeader from "../../components/atoms/BoxHeader";
-import DarkBackground from "../../components/atoms/DarkBackground";
+// import DarkBackground from "../../components/atoms/DarkBackground";
 import PopUpBox from "../../components/atoms/PopUpBox";
 import Button from "../../components/atoms/Button";
 
