@@ -67,7 +67,15 @@ const StyledError = styled.p`
   font-size: ${({ theme }) => theme.fontSize.mobile.s};
 `;
 
-const TextInput = ({ label, name, placeholder, value, onChange, error }) => {
+const TextInput = ({
+  label,
+  name,
+  placeholder,
+  value,
+  onChange,
+  onBlur,
+  error
+}) => {
   return (
     <>
       <StyledWrapper error={error}>
@@ -78,6 +86,7 @@ const TextInput = ({ label, name, placeholder, value, onChange, error }) => {
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
           error={error}
         />
 

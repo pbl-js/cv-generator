@@ -33,8 +33,8 @@ export const theme = {
     mobile: {
       xxs: "1rem",
       xs: "1.2rem",
-      s: "1.2rem", // button Paragraph InfoBox
-      m: "1.5rem", // Header
+      s: "1.4rem", // button Paragraph InfoBox
+      m: "1.6rem", // Header
       l: "1.8rem", // BigParagraph
       xl: "2.4rem" //BigHeader
     },

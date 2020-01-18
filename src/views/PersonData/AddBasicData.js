@@ -34,6 +34,10 @@ const AddBasicData = ({ addMainInfo }) => {
     }
   };
 
+  const handleBlurEvent = e => {
+    console.log("Work");
+  };
+
   const saveData = () => {
     console.log(name);
     addMainInfo({ photo, name, surname, job });
@@ -66,6 +70,7 @@ const AddBasicData = ({ addMainInfo }) => {
         name="name"
         placeholder="Np: John"
         onChange={handleInputChange}
+        onBlur={handleBlurEvent}
       />
 
       <TextInput label="Nazwisko*" placeholder="Np: Doe" />

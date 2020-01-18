@@ -5,8 +5,8 @@ const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35px;
-  min-height: 35px;
+  height: 40px;
+  min-height: 40px;
   width: 130px;
   font-size: ${({ theme }) => theme.fontSize.mobile.s};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
