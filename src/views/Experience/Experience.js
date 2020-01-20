@@ -1,7 +1,7 @@
 import React from "react";
 
-import AddExperience from "./AddExperience";
-import AddAboutMe from "./AddAboutMe";
+import AddExperience from "views/experience/AddExperience";
+import AddAboutMe from "views/experience/AddAboutMe";
 
 const Experience = props => {
   return (

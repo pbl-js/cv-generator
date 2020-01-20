@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { connect } from "react-redux";
-import { addMainInfo, addContacts } from "../../redux/actions/cvActions";
+import { addMainInfo, addContacts } from "redux/actions/cvActions";
 
 const Container = styled.div`
   background-color: #fff;

@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import personData from "../reducers/rootReducer";
+import personData from "redux/reducers/rootReducer";
 
 const store = createStore(
   personData /* preloadedState, */,

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import Box from "../../components/atoms/Box";
-import TextInput from "../../components/organisms/TextInput";
-import BoxHeader from "../../components/atoms/BoxHeader";
-import InfoBox from "../../components/atoms/InfoBox";
-import Header from "../../components/atoms/Header";
+import Box from "components/atoms/Box";
+import TextInput from "components/organisms/TextInput";
+import BoxHeader from "components/atoms/BoxHeader";
+import InfoBox from "components/atoms/InfoBox";
+import Header from "components/atoms/Header";
 
 import { Phone } from "styled-icons/boxicons-solid/Phone";
 import { Settings } from "styled-icons/material/Settings";
 
 import { connect } from "react-redux";
-import { addContacts } from "../../redux/actions/cvActions";
+import { addContacts } from "redux/actions/cvActions";
 
 const AddContact = ({ addContacts }) => {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ const AddContact = ({ addContacts }) => {
     <Box>
       <BoxHeader>
         <Phone />
-        <h1>Dane kontaktowe</h1>
+        <Header>Dane kontaktowe</Header>
         <Settings />
       </BoxHeader>
 

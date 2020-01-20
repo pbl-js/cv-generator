@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { withRouter } from "react-router";
 import { creatorRoutes } from "../routes/routes";
 
-import withPopUp from "../hoc/withPopup";
-import ShowCvPopUp from "./ShowCvPopUp";
-import Navigation from "../components/organisms/Navigation";
-import MobileNavigation from "../components/organisms/MobileNavigation";
-import PreviewIcon from "../components/atoms/PreviewIcon";
+import withPopUp from "hoc/withPopup";
+import ShowCvPopUp from "templates/ShowCvPopUp";
+import Navigation from "components/organisms/Navigation";
+import MobileNavigation from "components/organisms/MobileNavigation";
+import PreviewIcon from "components/atoms/PreviewIcon";
 
 const StyledWrapper = styled.div`
   padding: 0 10px 10px 10px;

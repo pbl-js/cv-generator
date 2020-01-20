@@ -1,5 +1,5 @@
 import React from "react";
-import PdfGenerator from "../components/pdfGenerator/PdfGenerator";
+import PdfGenerator from "components/pdfGenerator/PdfGenerator";
 
 const Template = () => {
   return (

@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { routes } from "../routes/routes";
 
-import PurpleBackground from "../components/molecules/PurpleBackground";
-import Footer from "../components/molecules/Footer";
-import BigHeader from "../components/atoms/BigHeader";
+import PurpleBackground from "components/molecules/PurpleBackground";
+import Footer from "components/molecules/Footer";
+import BigHeader from "components/atoms/BigHeader";
 
 const Logo = styled(BigHeader)`
   text-decoration: none;

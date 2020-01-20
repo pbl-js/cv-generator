@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import Button from "../atoms/Button";
+import Button from "components/atoms/Button";
 
 const StyledWrapper = styled.div`
   position: fixed;

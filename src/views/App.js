@@ -1,22 +1,22 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { routes } from "../routes/routes";
-import { theme } from "../theme/mainTheme";
-import GlobalStyle from "../theme/GlobalStyle";
+import { routes } from "routes/routes";
+import { theme } from "theme/mainTheme";
+import GlobalStyle from "theme/GlobalStyle";
 
-import MainTemplate from "../templates/MainTemplate";
-import CreatorTemplate from "../templates/CreatorTemplate";
-import LandingPage from "./LandingPage";
+import MainTemplate from "templates/MainTemplate";
+import CreatorTemplate from "templates/CreatorTemplate";
+import LandingPage from "views/LandingPage";
 
-import PersonData from "./PersonData/PersonData";
-import Education from "./Education/Education";
-import Experience from "./Experience/Experience";
-import Template from "./Template";
-import Download from "./Download";
+import PersonData from "views/personData/PersonData";
+import Education from "views/education/Education";
+import Experience from "views/experience/Experience";
+import Template from "views/Template";
+import Download from "views/Download";
 
 import { Provider } from "react-redux";
-import store from "../redux/store/";
+import store from "redux/store/";
 
 function App() {
   return (

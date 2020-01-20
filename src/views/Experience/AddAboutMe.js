@@ -1,10 +1,10 @@
 import React from "react";
 
-import Box from "../../components/atoms/Box";
-import InfoBox from "../../components/atoms/InfoBox";
-import TextInput from "../../components/organisms/TextInput";
-import BoxHeader from "../../components/atoms/BoxHeader";
-import PhotoUploader from "../../components/atoms/PhotoUploader";
+import Box from "components/atoms/Box";
+import InfoBox from "components/atoms/InfoBox";
+import TextInput from "components/organisms/TextInput";
+import BoxHeader from "components/atoms/BoxHeader";
+import PhotoUploader from "components/atoms/PhotoUploader";
 
 import { Info } from "styled-icons/fa-solid/Info";
 import { Settings } from "styled-icons/material/Settings";

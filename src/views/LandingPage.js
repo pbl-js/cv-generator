@@ -2,18 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { routes } from "../routes/routes";
+import { routes } from "routes/routes";
 
-import Button from "../components/atoms/Button";
-import Box from "../components/atoms/Box";
-import BigHeader from "../components/atoms/BigHeader";
-import Header from "../components/atoms/Header";
-import Paragraph from "../components/atoms/Paragraph";
-import PurpleBackground from "../components/molecules/PurpleBackground";
+import Button from "components/atoms/Button";
+import Box from "components/atoms/Box";
+import BigHeader from "components/atoms/BigHeader";
+import Header from "components/atoms/Header";
+import Paragraph from "components/atoms/Paragraph";
+import PurpleBackground from "components/molecules/PurpleBackground";
 
-import devices from "../assets/images/devices.png";
-import laptop from "../assets/images/laptop.png";
-import template from "../assets/images/template.jpg";
+import devices from "assets/images/devices.png";
+import laptop from "assets/images/laptop.png";
+import template from "assets/images/template.jpg";
 
 const MainWrapper = styled.div`
   display: flex;

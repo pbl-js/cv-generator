@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import Box from "../../components/atoms/Box";
-import TextInput from "../../components/organisms/TextInput";
-import BoxHeader from "../../components/atoms/BoxHeader";
-import PhotoUploader from "../../components/atoms/PhotoUploader";
-import InfoBox from "../../components/atoms/InfoBox";
+import Box from "components/atoms/Box";
+import TextInput from "components/organisms/TextInput";
+import BoxHeader from "components/atoms/BoxHeader";
+import PhotoUploader from "components/atoms/PhotoUploader";
+import InfoBox from "components/atoms/InfoBox";
 
 import { Person } from "styled-icons/octicons/Person";
 import { Settings } from "styled-icons/material/Settings";
 
 import { connect } from "react-redux";
-import { addMainInfo } from "../../redux/actions/cvActions";
+import { addMainInfo } from "redux/actions/cvActions";
 
 const AddBasicData = ({ addMainInfo }) => {
   const [formData, setFormData] = useState({

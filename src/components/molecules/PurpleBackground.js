@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import BackgroundLayer from "../atoms/BackgroundLayer";
+import BackgroundLayer from "components/atoms/BackgroundLayer";
 
-import purpleUp from "../../assets/images/purpleUp.svg";
-import purpleUnder from "../../assets/images/purpleUnder.svg";
+import purpleUp from "assets/images/purpleUp.svg";
+import purpleUnder from "assets/images/purpleUnder.svg";
 
 const Wrapper = styled.div`
   height: 510px;

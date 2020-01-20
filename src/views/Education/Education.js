@@ -1,7 +1,7 @@
 import React from "react";
 
-import AddSchool from "./AddSchool";
-import AddSkills from "./AddSkills";
+import AddSchool from "views/education/AddSchool";
+import AddSkills from "views/education/AddSkills";
 
 const Education = () => {
   return (

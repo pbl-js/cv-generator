@@ -1,13 +1,13 @@
 import React from "react";
 
-import withPopup from "../../hoc/withPopup";
+import withPopup from "hoc/withPopup";
 import AddExperiencePopUp from "./AddExperiencePopUp";
 
-import Box from "../../components/atoms/Box";
-import InfoBox from "../../components/atoms/InfoBox";
-import ItemBox from "../../components/molecules/ItemBox";
-import BoxHeader from "../../components/atoms/BoxHeader";
-import Button from "../../components/atoms/Button";
+import Box from "components/atoms/Box";
+import InfoBox from "components/atoms/InfoBox";
+import ItemBox from "components/molecules/ItemBox";
+import BoxHeader from "components/atoms/BoxHeader";
+import Button from "components/atoms/Button";
 
 import { Brain } from "styled-icons/fa-solid/Brain";
 import { Settings } from "styled-icons/material/Settings";

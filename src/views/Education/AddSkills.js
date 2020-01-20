@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import Box from "../../components/atoms/Box";
-import BoxHeader from "../../components/atoms/BoxHeader";
-import Button from "../../components/atoms/Button";
-import InfoBox from "../../components/atoms/InfoBox";
-import SkillItem from "../../components/atoms/SkillItem";
-import TextInput from "../../components/organisms/TextInput";
+import Box from "components/atoms/Box";
+import BoxHeader from "components/atoms/BoxHeader";
+import Button from "components/atoms/Button";
+import InfoBox from "components/atoms/InfoBox";
+import SkillItem from "components/atoms/SkillItem";
+import TextInput from "components/organisms/TextInput";
 
 import { Settings } from "styled-icons/material/Settings";
 import { BarChartGrouped as Skills } from "styled-icons/remix-line/BarChartGrouped";

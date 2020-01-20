@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import InfoBox from "../atoms/InfoBox.js";
+import InfoBox from "components/atoms/InfoBox.js";
 
 import { Edit } from "styled-icons/material/Edit";
 import { Trash } from "styled-icons/fa-solid/Trash";

@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { PDFViewer } from "@react-pdf/renderer";
 import PropTypes from "prop-types";
 
-import TemplateHarvard from "../../cv-templates/template1";
+import TemplateHarvard from "cv-templates/template1";
 
 import { connect } from "react-redux";
 

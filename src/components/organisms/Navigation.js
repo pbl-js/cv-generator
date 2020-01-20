@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { creatorRoutes } from "../../routes/routes";
+import { creatorRoutes } from "routes/routes";
 
-import CircleButtonIcon from "../atoms/CircleButtonIcon";
-import Header from "../atoms/Header";
-import ProgressBar from "../atoms/ProgressBar";
+import CircleButtonIcon from "components/atoms/CircleButtonIcon";
+import Header from "components/atoms/Header";
+import ProgressBar from "components/atoms/ProgressBar";
 
 import { Person } from "styled-icons/octicons/Person";
 import { School } from "styled-icons/material/School";

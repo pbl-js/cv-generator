@@ -1,7 +1,7 @@
 import React from "react";
 
-import AddBasicData from "./AddBasicData";
-import AddContact from "./AddContact";
+import AddBasicData from "views/personData/AddBasicData";
+import AddContact from "views/personData/AddContact";
 
 const PersonData = props => {
   return (
