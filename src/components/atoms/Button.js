@@ -8,7 +8,7 @@ const Button = styled.button`
   height: 40px;
   min-height: 40px;
   width: 130px;
-  font-size: ${({ theme }) => theme.fontSize.mobile.s};
+  font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   border: ${({ secondary }) => (secondary ? "1px solid" : "none")};
   border-radius: ${({ left, right }) => {

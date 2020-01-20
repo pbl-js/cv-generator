@@ -6,7 +6,7 @@ const SkillItem = styled.div`
   border-radius: 100px;
   padding: 7px 40px 7px 20px;
   margin: 0 10px 10px 0;
-  font-size: ${({ theme }) => theme.fontSize.mobile.s};
+  font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   background-color: ${({ theme }) => theme.color.lightGray};
   color: ${({ theme }) => theme.color.veryDarkGray};

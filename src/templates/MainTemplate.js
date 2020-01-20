@@ -12,7 +12,7 @@ const Logo = styled(BigHeader)`
   text-align: center;
   width: 100%;
   display: block;
-  font-size: ${({ theme }) => theme.fontSize.mobile.l};
+  font-size: ${({ theme }) => theme.fontSize.l};
 `;
 
 const StyledWrapper = styled.div`

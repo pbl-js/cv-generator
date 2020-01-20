@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // Avaible Props:
-const BoxHeader = styled.div`
+const BoxHeader = styled.header`
   padding-bottom: 20px;
   width: 100%;
   display: flex;
@@ -22,8 +22,6 @@ const BoxHeader = styled.div`
 
   h1 {
     margin-left: 10px;
-    font-size: ${({ theme }) => theme.fontSize.mobile.m};
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 `;
 

@@ -30,21 +30,11 @@ export const theme = {
     black: 800
   },
   fontSize: {
-    mobile: {
-      xxs: "1rem",
-      xs: "1.2rem",
-      s: "1.4rem", // button Paragraph InfoBox
-      m: "1.6rem", // Header
-      l: "1.8rem", // BigParagraph
-      xl: "2.4rem" //BigHeader
-    },
-    desktop: {
-      xxs: "1rem",
-      xs: "1.4rem",
-      s: "1.8rem",
-      m: "2rem",
-      l: "2.4rem",
-      xl: "4rem"
-    }
+    xxs: "1rem",
+    xs: "1.4rem",
+    s: "1.8rem", // button Paragraph InfoBox
+    m: "2rem", // Header
+    l: "2.4rem", // BigParagraph
+    xl: "4rem" //BigHeader
   }
 };

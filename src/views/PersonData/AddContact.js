@@ -5,6 +5,7 @@ import Box from "../../components/atoms/Box";
 import TextInput from "../../components/organisms/TextInput";
 import BoxHeader from "../../components/atoms/BoxHeader";
 import InfoBox from "../../components/atoms/InfoBox";
+import Header from "../../components/atoms/Header";
 
 import { Phone } from "styled-icons/boxicons-solid/Phone";
 import { Settings } from "styled-icons/material/Settings";

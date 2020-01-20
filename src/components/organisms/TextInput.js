@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
 `;
 const StyledLabel = styled.label`
   margin-bottom: 5px;
-  font-size: ${({ theme }) => theme.fontSize.mobile.s};
+  font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme, error }) =>
     error ? theme.color.red : theme.color.darkGray};
@@ -28,7 +28,7 @@ const StyledLabel = styled.label`
 
 const StyledInput = styled.input`
   height: 30px;
-  font-size: ${({ theme }) => theme.fontSize.mobile.m};
+  font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: ${({ theme }) => theme.fontWeight.light};
   order: 2;
   border: 0;
@@ -64,7 +64,7 @@ const StyledError = styled.p`
   margin-top: 5px;
   margin-bottom: 15px;
   color: ${({ theme }) => theme.color.red};
-  font-size: ${({ theme }) => theme.fontSize.mobile.s};
+  font-size: ${({ theme }) => theme.fontSize.s};
 `;
 
 const TextInput = ({

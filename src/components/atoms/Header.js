@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Header = styled.h2`
   text-align: center;
   letter-spacing: 1px;
-  font-size: ${({ theme }) => theme.fontSize.mobile.m};
+  font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ white, theme }) => (white ? "white" : theme.color.veryDarkGray)};
 `;

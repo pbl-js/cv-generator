@@ -10,7 +10,7 @@ const InfoBox = styled.div`
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 15px;
-  font-size: ${({ theme }) => theme.fontSize.mobile.s};
+  font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
   background-color: ${({ theme, color }) => {
     switch (color) {
