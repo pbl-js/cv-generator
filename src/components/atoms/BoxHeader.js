@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 // Avaible Props:
 const BoxHeader = styled.header`
-  padding-bottom: 20px;
+  padding: 20px 0;
   width: 100%;
   display: flex;
   color: ${({ theme }) => theme.color.veryDarkGray};
   border-bottom: 1px solid ${({ theme }) => theme.color.lightGray};
-  margin-bottom: 20px;
   svg {
     width: 20px;
     height: 20px;
@@ -20,7 +19,7 @@ const BoxHeader = styled.header`
     cursor: pointer;
   }
 
-  h1 {
+  h2 {
     margin-left: 10px;
   }
 `;

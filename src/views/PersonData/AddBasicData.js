@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import Box from "components/atoms/Box";
 import TextInput from "components/organisms/TextInput";
-import BoxHeader from "components/atoms/BoxHeader";
 import PhotoUploader from "components/atoms/PhotoUploader";
 import InfoBox from "components/atoms/InfoBox";
+import AddInfoTemplate from "templates/AddInfoTemplate.js";
 
 import { Person } from "styled-icons/octicons/Person";
-import { Settings } from "styled-icons/material/Settings";
 
 import { connect } from "react-redux";
 import { addMainInfo } from "redux/actions/cvActions";
@@ -44,13 +42,7 @@ const AddBasicData = ({ addMainInfo }) => {
   };
 
   return (
-    <Box>
-      <BoxHeader>
-        <Person />
-        <h1>Dane podstawowe</h1>
-        <Settings />
-      </BoxHeader>
-
+    <AddInfoTemplate title="Dane podstawowe" icon={<Person />}>
       <InfoBox color="orange">
         Dodaj zdjęcie aby rekruter łatwiej cię zapamiętał oraz skojarzył twoją
         twarz podczas rozmowy rekrutacyjnej. Nie musisz podawać daty urodzenia
@@ -80,7 +72,7 @@ const AddBasicData = ({ addMainInfo }) => {
         placeholder="Np: FrontEnd developer"
       />
       <button onClick={saveData}>Wyślij</button>
-    </Box>
+    </AddInfoTemplate>
   );
 };
 

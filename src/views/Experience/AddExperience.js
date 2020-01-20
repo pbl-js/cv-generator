@@ -3,25 +3,17 @@ import React from "react";
 import withPopup from "hoc/withPopup";
 import AddExperiencePopUp from "./AddExperiencePopUp";
 
-import Box from "components/atoms/Box";
 import InfoBox from "components/atoms/InfoBox";
 import ItemBox from "components/molecules/ItemBox";
-import BoxHeader from "components/atoms/BoxHeader";
 import Button from "components/atoms/Button";
+import AddInfoTemplate from "templates/AddInfoTemplate.js";
 
 import { Brain } from "styled-icons/fa-solid/Brain";
-import { Settings } from "styled-icons/material/Settings";
 
 const AddExperience = ({ handlePopupShow, isOpen }) => {
   return (
     <>
-      <Box>
-        <BoxHeader>
-          <Brain />
-          <h1>Doświadczenie</h1>
-          <Settings />
-        </BoxHeader>
-
+      <AddInfoTemplate title="Doświadczenie" icon={<Brain />}>
         <InfoBox color="orange">
           Wymień najważniejsze obowiązki w danej pracy i podkreśl swoje
           sukcesy.Postaraj się, żeby z Twojej historii zatrudnienia wynikało, że
@@ -43,7 +35,7 @@ const AddExperience = ({ handlePopupShow, isOpen }) => {
         </ItemBox>
 
         <Button onClick={handlePopupShow}>Dodaj pozycję</Button>
-      </Box>
+      </AddInfoTemplate>
 
       {isOpen && <AddExperiencePopUp handlePopupShow={handlePopupShow} />}
     </>

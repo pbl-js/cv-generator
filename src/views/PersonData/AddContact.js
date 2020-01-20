@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import Box from "components/atoms/Box";
+import AddInfoTemplate from "templates/AddInfoTemplate.js";
 import TextInput from "components/organisms/TextInput";
-import BoxHeader from "components/atoms/BoxHeader";
 import InfoBox from "components/atoms/InfoBox";
 import Header from "components/atoms/Header";
 
 import { Phone } from "styled-icons/boxicons-solid/Phone";
-import { Settings } from "styled-icons/material/Settings";
 
 import { connect } from "react-redux";
 import { addContacts } from "redux/actions/cvActions";
@@ -31,13 +29,7 @@ const AddContact = ({ addContacts }) => {
   };
 
   return (
-    <Box>
-      <BoxHeader>
-        <Phone />
-        <Header>Dane kontaktowe</Header>
-        <Settings />
-      </BoxHeader>
-
+    <AddInfoTemplate title="Dane kontaktowe" icon={<Phone />}>
       <InfoBox color="orange">
         Numer telefonu i adres email to podstawowe dane kontaktowe. Dodatkowym
         atutem może być również podanie strony internetowej.
@@ -56,7 +48,7 @@ const AddContact = ({ addContacts }) => {
 
       <TextInput label="Email*" placeholder="Np: johndoe@darmowecv.pl" />
       <button onClick={saveData}>Zapisz</button>
-    </Box>
+    </AddInfoTemplate>
   );
 };
 

@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import Box from "components/atoms/Box";
-import BoxHeader from "components/atoms/BoxHeader";
 import Button from "components/atoms/Button";
 import InfoBox from "components/atoms/InfoBox";
 import SkillItem from "components/atoms/SkillItem";
 import TextInput from "components/organisms/TextInput";
+import AddInfoTemplate from "templates/AddInfoTemplate.js";
 
-import { Settings } from "styled-icons/material/Settings";
 import { BarChartGrouped as Skills } from "styled-icons/remix-line/BarChartGrouped";
 import { Cancel } from "styled-icons/material/Cancel";
 
@@ -22,13 +20,7 @@ const SkillWrapper = styled.div`
 const AddSkills = ({ handlePopupShow, isOpen }) => {
   console.log(isOpen);
   return (
-    <Box>
-      <BoxHeader>
-        <Skills />
-        <h1>Umiejętności</h1>
-        <Settings />
-      </BoxHeader>
-
+    <AddInfoTemplate title="Umiejętności" icon={<Skills />}>
       <InfoBox color="orange">
         Pokaż swoje mocne strony. Wpisz umiejętności, które pasują do oczekiwań
         pracodawcy opisanych w ogłoszeniu.
@@ -58,10 +50,11 @@ const AddSkills = ({ handlePopupShow, isOpen }) => {
       <TextInput
         label="Wpisz swoje umiejętności*"
         placeholder="Np: Operowanie wózkiem widłowym"
+        error="elo"
       />
 
       <Button>Dodaj pozycję</Button>
-    </Box>
+    </AddInfoTemplate>
   );
 };
 
