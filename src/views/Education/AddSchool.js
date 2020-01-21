@@ -14,7 +14,11 @@ const AddSchool = ({ handlePopupShow, isOpen }) => {
   console.log(isOpen);
   return (
     <>
-      <AddInfoTemplate title={"Wykształcenie"} icon={<School />}>
+      <AddInfoTemplate
+        title={"Wykształcenie"}
+        icon={<School />}
+        handleClick={handlePopupShow}
+      >
         <InfoBox color="orange">
           Wpisz ostatnio ukończoną szkołę. Jeśli masz wykształcenie wyższe lub
           podyplomowe, podaj nazwę uczelni i kierunek studiów.
@@ -36,7 +40,13 @@ const AddSchool = ({ handlePopupShow, isOpen }) => {
         <Button onClick={handlePopupShow}>Dodaj pozycję</Button>
       </AddInfoTemplate>
 
-      {isOpen && <AddSchoolPopUp handlePopupShow={handlePopupShow} />}
+      {isOpen && (
+        <AddSchoolPopUp
+          title={"Wykształcenie"}
+          icon={<School />}
+          handlePopupShow={handlePopupShow}
+        />
+      )}
     </>
   );
 };

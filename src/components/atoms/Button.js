@@ -6,11 +6,12 @@ const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: content-box;
   padding: 10px 20px;
   min-width: 130px;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  border: ${({ secondary }) => (secondary ? "1px solid" : "none")};
+  border: ${({ secondary }) => (secondary ? "2px solid" : "none")};
   border-radius: ${({ left, right }) => {
     if (left) {
       return "99px 0 0 99px";
@@ -28,8 +29,6 @@ const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    /* transform: scale(1.05); */
-    border: 0;
     color: white;
     background-color: ${({ theme, secondary }) =>
       secondary ? theme.color.orange : theme.color.orangeHover};

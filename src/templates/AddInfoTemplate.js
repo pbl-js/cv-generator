@@ -20,13 +20,13 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const AddInfoTemplate = ({ children, title, icon }) => {
+const AddInfoTemplate = ({ children, title, icon, handleClick }) => {
   return (
     <Box>
       <BoxHeader>
         {icon}
         <Header>{title}</Header>
-        <Settings />
+        <Settings onClick={handleClick} />
       </BoxHeader>
       <StyledWrapper>{children}</StyledWrapper>
     </Box>

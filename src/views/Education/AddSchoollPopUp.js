@@ -2,24 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import TextInput from "components/organisms/TextInput";
-import BoxHeader from "components/atoms/BoxHeader";
 // import DarkBackground from "components/atoms/DarkBackground";
 import PopUpBox from "components/atoms/PopUpBox";
 import Button from "components/atoms/Button";
+import AddInfoPopUpTemplate from "templates/AddInfoPopUpTemplate";
 
-import { Close } from "styled-icons/material/Close";
 import { School } from "styled-icons/material/School";
 
-const AddSchoolPopUp = ({ handlePopupShow }) => {
+const AddSchoolPopUp = ({ title, icon, handlePopupShow }) => {
   return (
     <>
-      <PopUpBox>
-        <BoxHeader>
-          <School />
-          <h1>Wykształcenie</h1>
-          <Close onClick={handlePopupShow} />
-        </BoxHeader>
-
+      <AddInfoPopUpTemplate title={title} icon={icon} handlePopupShow={handlePopupShow}>
         <TextInput label="Poziom wykształcenia*" placeholder="Np: Inżynier" />
 
         <TextInput
@@ -35,9 +28,7 @@ const AddSchoolPopUp = ({ handlePopupShow }) => {
         <TextInput label="Rok rozpoczęcia*" placeholder="Np: 2012" />
 
         <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
-
-        <Button>Zapisz</Button>
-      </PopUpBox>
+      </AddInfoPopUpTemplate>
       {/* <DarkBackground /> */}
     </>
   );
