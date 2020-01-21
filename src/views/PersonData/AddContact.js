@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import AddInfoTemplate from "templates/AddInfoTemplate.js";
 import TextInput from "components/organisms/TextInput";
 import InfoBox from "components/atoms/InfoBox";
-import Header from "components/atoms/Header";
 
 import { Phone } from "styled-icons/boxicons-solid/Phone";
 
