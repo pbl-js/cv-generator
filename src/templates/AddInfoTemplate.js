@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { device } from "theme/BreakPoints";
 
 import Box from "components/atoms/Box";
 import BoxHeader from "components/atoms/BoxHeader";
@@ -13,6 +14,10 @@ const StyledWrapper = styled.div`
   display: grid;
   grid-gap: 20px;
   justify-items: center;
+
+  @media ${device.tablet} {
+    margin: 30px 0;
+  }
 `;
 
 const AddInfoTemplate = ({ children, title, icon }) => {

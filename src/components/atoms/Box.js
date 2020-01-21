@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 
 // Avaible Props:
 const Box = styled.div`
@@ -10,7 +11,12 @@ const Box = styled.div`
   width: 100%;
   padding: 0 20px;
   background-color: white;
-  margin-top: 20px;
+  margin-top: 40px;
+
+  @media ${device.tablet} {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 `;
 
 export default Box;

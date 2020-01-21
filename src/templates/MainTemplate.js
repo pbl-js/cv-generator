@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 50px;
+  padding-bottom: 90px;
   padding-top: 10px;
 `;
 

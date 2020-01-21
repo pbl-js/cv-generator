@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import BackgroundLayer from "components/atoms/BackgroundLayer";
+import { device } from "theme/BreakPoints";
 
+import BackgroundLayer from "components/atoms/BackgroundLayer";
 import purpleUp from "assets/images/purpleUp.svg";
 import purpleUnder from "assets/images/purpleUnder.svg";
 
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
   top: 0;
   left: 0;
   z-index: -999;
-  @media (min-width: ${({ theme }) => theme.mediaQueries.tablet}) {
+  @media ${device.tablet} {
     height: 550px;
   }
 

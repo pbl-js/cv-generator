@@ -10,7 +10,7 @@ import MobileNavigation from "components/organisms/MobileNavigation";
 import PreviewIcon from "components/atoms/PreviewIcon";
 
 const StyledWrapper = styled.div`
-  padding: 0 10px 10px 10px;
+  padding: 0 10px;
   max-width: 850px;
   margin: 0 auto;
 `;

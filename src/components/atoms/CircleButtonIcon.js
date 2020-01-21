@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 
 // Avaible Props: active
 const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border: 0;
   border-radius: 99px;
   background-color: ${({ theme, active }) =>
@@ -17,6 +18,16 @@ const Button = styled.button`
   transition: 0.2s;
   svg {
     width: 35%;
+  }
+
+  @media ${device.mobileM} {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media ${device.tablet} {
+    width: 50px;
+    height: 50px;
   }
 `;
 

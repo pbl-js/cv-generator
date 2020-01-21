@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 
 // Avaible Props:
 const BoxHeader = styled.header`
@@ -21,6 +22,17 @@ const BoxHeader = styled.header`
 
   h2 {
     margin-left: 10px;
+    font-size: ${({ theme }) => theme.fontSize.s};
+  }
+
+  @media ${device.mobileL} {
+    h2 {
+      font-size: ${({ theme }) => theme.fontSize.m};
+    }
+  }
+
+  @media ${device.tablet} {
+    padding: 30px 0;
   }
 `;
 

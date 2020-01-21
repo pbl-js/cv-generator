@@ -15,7 +15,7 @@ import { Customize } from "styled-icons/boxicons-solid/Customize";
 import { Download } from "styled-icons/remix-fill/Download";
 
 const StyledWrapper = styled.div`
-  margin: 20px 0;
+  margin-top: 20px;
 `;
 
 const InnerWrapper = styled.div`
@@ -26,7 +26,7 @@ const InnerWrapper = styled.div`
 
 const StyledHeader = styled(Header)`
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 `;
 
 const Navigation = ({ progressData, handlePageChange, actualPage }) => {

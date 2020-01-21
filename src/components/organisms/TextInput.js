@@ -2,6 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
+const MainWrapper = styled.div`
+  width: 100%;
+`;
+
 const StyledWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -19,17 +23,17 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledLabel = styled.label`
-  margin-bottom: 5px;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme, error }) =>
     error ? theme.color.red : theme.color.darkGray};
+  transition: 0.3s;
 `;
 
 const StyledInput = styled.input`
-  height: 30px;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: ${({ theme }) => theme.fontWeight.light};
+  line-height: 250%;
   order: 2;
   border: 0;
   outline: 0;
@@ -77,7 +81,7 @@ const TextInput = ({
   error
 }) => {
   return (
-    <>
+    <MainWrapper>
       <StyledWrapper error={error}>
         <StyledInput
           id={name}
@@ -97,7 +101,7 @@ const TextInput = ({
         <Bar error={error} />
       </StyledWrapper>
       <StyledError>{error}</StyledError>
-    </>
+    </MainWrapper>
   );
 };
 

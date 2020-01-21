@@ -1,13 +1,13 @@
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 
 // Avaible Props: left right secondary smaller
 const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  min-height: 40px;
-  width: 130px;
+  padding: 10px 20px;
+  min-width: 130px;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   border: ${({ secondary }) => (secondary ? "1px solid" : "none")};
@@ -33,6 +33,11 @@ const Button = styled.button`
     color: white;
     background-color: ${({ theme, secondary }) =>
       secondary ? theme.color.orange : theme.color.orangeHover};
+  }
+
+  @media ${device.tablet} {
+    padding: 15px 40px;
+    min-width: 150px;
   }
 `;
 

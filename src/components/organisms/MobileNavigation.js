@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 
 import Button from "components/atoms/Button";
 
@@ -19,10 +20,10 @@ const StyledWrapper = styled.div`
     margin: 0 5px;
   }
 
-  @media (min-width: ${({ theme }) => theme.mediaQueries.tablet}) {
+  @media ${device.tablet} {
     position: relative;
     background-color: transparent;
-    margin-top: 10px;
+    margin-top: 40px;
   }
 `;
 

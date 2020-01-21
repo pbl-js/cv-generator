@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 
 import { routes } from "routes/routes";
 
@@ -41,7 +42,7 @@ const CvWrapper = styled.div`
   display: grid;
   margin-top: 20px;
 
-  @media (min-width: ${({ theme }) => theme.mediaQueries.tablet}) {
+  @media ${device.tablet} {
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     margin-top: 50px;
@@ -60,15 +61,6 @@ const StyledBox = styled(Box)`
 const StyledParagraph = styled(Paragraph)`
   line-height: 150%;
   margin-top: 15px;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 270px;
-  margin-top: 20px;
-  margin-bottom: 80px;
 `;
 
 const Devices = styled.img`
@@ -103,15 +95,9 @@ const LandingPage = () => {
             Zyskaj pracę marzeń!
           </StyledParagraph>
 
-          <ButtonWrapper>
-            <Button wide="true" as={Link} to={routes.personData}>
-              Stwórz CV
-            </Button>
-
-            <Button wide="true" secondary="true">
-              Jak napisać CV
-            </Button>
-          </ButtonWrapper>
+          <Button wide="true" as={Link} to={routes.personData}>
+            Stwórz CV
+          </Button>
         </PurpleHeaderWrapper>
       </MainPurpleWrapper>
 
