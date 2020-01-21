@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { device } from "theme/BreakPoints";
+import withPopup from "hoc/withPopup";
 
 import Box from "components/atoms/Box";
 import BoxHeader from "components/atoms/BoxHeader";
 import Header from "components/atoms/Header";
+import SettingsPopup from "components/organisms/SettingsPopup";
 
 import { Settings } from "styled-icons/material/Settings";
 
@@ -20,15 +22,25 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const AddInfoTemplate = ({ children, title, icon, handleClick }) => {
+const AddInfoTemplate = ({
+  children,
+  title,
+  icon,
+  handleClick,
+  isOpen,
+  handlePopupShow
+}) => {
   return (
     <Box>
       <BoxHeader>
         {icon}
         <Header>{title}</Header>
-        <Settings onClick={handleClick} />
+        <Settings onClick={handlePopupShow} />
       </BoxHeader>
+
       <StyledWrapper>{children}</StyledWrapper>
+
+      {isOpen ? <SettingsPopup handlePopupShow={handlePopupShow} /> : null}
     </Box>
   );
 };
@@ -38,4 +50,4 @@ AddInfoTemplate.propTypes = {
   icon: PropTypes.element
 };
 
-export default AddInfoTemplate;
+export default withPopup(AddInfoTemplate);
