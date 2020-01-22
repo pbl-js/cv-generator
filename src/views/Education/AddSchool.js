@@ -26,6 +26,7 @@ const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
 
         {schools.items.map(school => (
           <ItemBox
+            id={school.id}
             key={school.id}
             handleEdit={handlePopupShow}
             dispatch={dispatch}

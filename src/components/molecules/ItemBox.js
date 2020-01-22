@@ -5,6 +5,8 @@ import InfoBox from "components/atoms/InfoBox.js";
 import { Edit } from "styled-icons/material/Edit";
 import { Trash } from "styled-icons/fa-solid/Trash";
 
+import { DELETE_SCHOOL } from "actions/actionTypes";
+
 const Wrapper = styled(InfoBox)`
   svg {
     width: 20px;
@@ -24,10 +26,10 @@ const Wrapper = styled(InfoBox)`
   }
 `;
 
-const ItemBox = ({ children, handleEdit, handleDelete }) => {
+const ItemBox = ({ children, handleEdit, dispatch, id }) => {
   return (
     <Wrapper>
-      <Trash onClick={handleDelete} />
+      <Trash onClick={() => dispatch({ type: DELETE_SCHOOL, id })} />
       <Edit onClick={handleEdit} />
       {children}
     </Wrapper>
