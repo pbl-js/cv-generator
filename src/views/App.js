@@ -18,6 +18,8 @@ import Download from "views/Download";
 import { Provider } from "react-redux";
 import store from "redux/store/";
 
+import CVdataContextProvider from "context/CVdataContext";
+
 function App() {
   return (
     <div>
@@ -29,11 +31,13 @@ function App() {
               <Switch>
                 <Route exact path={routes.home} component={LandingPage} />
                 <CreatorTemplate>
-                  <Route path={routes.personData} component={PersonData} />
-                  <Route path={routes.education} component={Education} />
-                  <Route path={routes.experience} component={Experience} />
-                  <Route path={routes.template} component={Template} />
-                  <Route path={routes.generateCv} component={Download} />
+                  <CVdataContextProvider>
+                    <Route path={routes.personData} component={PersonData} />
+                    <Route path={routes.education} component={Education} />
+                    <Route path={routes.experience} component={Experience} />
+                    <Route path={routes.template} component={Template} />
+                    <Route path={routes.generateCv} component={Download} />
+                  </CVdataContextProvider>
                 </CreatorTemplate>
               </Switch>
             </MainTemplate>

@@ -1,10 +1,17 @@
 import React, { createContext, useReducer } from "react";
-import { cvdataReducer } from "reducers/bookReducer"; // <--------
+import { cvdataReducer } from "reducers/cvdataReducer"; // <--------
 
-export const BookContext = createContext();
+export const CVdataContext = createContext();
 
-const CVdataContext = props => {
-  const [cvdata, dispatch] = useReducer(cvdataReducer, []);
+const CVdataContextProvider = props => {
+  const [cvdata, dispatch] = useReducer(cvdataReducer, {
+    template: "harvard",
+    personData: {
+      name: "Paweł",
+      surname: "Miłczak",
+      position: "FrontEnd Developer"
+    }
+  });
 
   return (
     <CVdataContext.Provider value={{ cvdata, dispatch }}>
@@ -13,4 +20,4 @@ const CVdataContext = props => {
   );
 };
 
-export default CVdataContext;
+export default CVdataContextProvider;

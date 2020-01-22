@@ -11,7 +11,8 @@ import { Person } from "styled-icons/octicons/Person";
 import { connect } from "react-redux";
 import { addMainInfo } from "redux/actions/cvActions";
 
-const AddBasicData = ({ addMainInfo }) => {
+const AddBasicData = ({ addMainInfo, context }) => {
+  console.log(context);
   const [formData, setFormData] = useState({
     photo: "",
     name: "",
