@@ -89,12 +89,12 @@ const TextInput = ({
           type="text"
           placeholder={placeholder}
           value={value}
-          onChange={onChange}
+          onChange={e => onChange(e)}
           onBlur={onBlur}
           error={error}
         />
 
-        <StyledLabel error={error} htmlFor={label}>
+        <StyledLabel error={error} htmlFor={name}>
           {label}
         </StyledLabel>
 

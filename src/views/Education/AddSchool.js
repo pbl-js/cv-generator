@@ -10,8 +10,8 @@ import AddInfoTemplate from "templates/AddInfoTemplate.js";
 
 import { School } from "styled-icons/material/School";
 
-const AddSchool = ({ handlePopupShow, isOpen }) => {
-  console.log(isOpen);
+const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
+  console.log(schools.items);
   return (
     <>
       <AddInfoTemplate
@@ -24,18 +24,23 @@ const AddSchool = ({ handlePopupShow, isOpen }) => {
           podyplomowe, podaj nazwę uczelni i kierunek studiów.
         </InfoBox>
 
-        <ItemBox handleEdit={handlePopupShow}>
-          Okres: {"09.2015 - 02.2018"}
-          <br />
-          Stanowisko: {"Własna działalność gospodarcza"}
-          <br />
-          Firma: {"PADBOX K.Lipiński P.Miłczak"}
-          <br />
-          Lokalicaja: {"Lublin"}
-          <br />
-          <br />
-          Opis: {"Zakres"}
-        </ItemBox>
+        {schools.items.map(school => (
+          <ItemBox
+            key={school.id}
+            handleEdit={handlePopupShow}
+            dispatch={dispatch}
+          >
+            Poziom wykształcenia: {school.educationLevel}
+            <br />
+            Nazwa szkoły: {school.schoolName}
+            <br />
+            Specjalizacja: {school.specialization}
+            <br />
+            Rok rozpoczęcia: {school.start}
+            <br />
+            Rok zakończenia: {school.end}
+          </ItemBox>
+        ))}
 
         <Button onClick={handlePopupShow}>Dodaj pozycję</Button>
       </AddInfoTemplate>
@@ -45,6 +50,7 @@ const AddSchool = ({ handlePopupShow, isOpen }) => {
           title={"Wykształcenie"}
           icon={<School />}
           handlePopupShow={handlePopupShow}
+          dispatch={dispatch}
         />
       )}
     </>

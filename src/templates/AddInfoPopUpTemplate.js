@@ -48,11 +48,11 @@ const AddInfoPopUpTemplate = ({
   title,
   icon,
   handlePopupShow,
-  handleSave
+  onSubmit
 }) => {
   return (
     <>
-      <StyledBox>
+      <StyledBox as="form" onSubmit={onSubmit}>
         <BoxHeader>
           {icon}
           <Header>{title}</Header>
@@ -66,7 +66,7 @@ const AddInfoPopUpTemplate = ({
             Anuluj
           </Button>
 
-          <Button onClick={handleSave}>Zapisz</Button>
+          <Button type="submit">Zapisz</Button>
         </ButtonWrapper>
       </StyledBox>
       <DarkBackground onClick={handlePopupShow} />

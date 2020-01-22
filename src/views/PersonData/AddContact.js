@@ -49,7 +49,7 @@ const AddContact = ({ addContacts }) => {
 };
 
 AddContact.propTypes = {
-  addContacts: PropTypes.func.isRequired
+  // addContacts: PropTypes.func.isRequired
 };
 
 export default AddContact;

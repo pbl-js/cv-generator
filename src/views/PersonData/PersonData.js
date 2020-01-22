@@ -6,11 +6,13 @@ import AddContact from "views/personData/AddContact";
 import { CVdataContext } from "context/CVdataContext";
 
 const PersonData = props => {
-  const { cvdata } = useContext(CVdataContext);
+  const {
+    cvdata: { personData, contact }
+  } = useContext(CVdataContext);
   return (
     <>
-      <AddBasicData context={cvdata} />
-      <AddContact />
+      <AddBasicData personData={personData} />
+      <AddContact contacts={contact} />
     </>
   );
 };
