@@ -7,9 +7,6 @@ import InfoBox from "components/atoms/InfoBox";
 
 import { Phone } from "styled-icons/boxicons-solid/Phone";
 
-import { connect } from "react-redux";
-import { addContacts } from "redux/actions/cvActions";
-
 const AddContact = ({ addContacts }) => {
   const [formData, setFormData] = useState({
     phone: "",
@@ -24,7 +21,7 @@ const AddContact = ({ addContacts }) => {
 
   const saveData = () => {
     console.log(name);
-    addContacts({ photo, name, surname, job });
+    // addContacts({ photo, name, surname, job });
   };
 
   return (
@@ -55,8 +52,4 @@ AddContact.propTypes = {
   addContacts: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = dispatch => ({
-  addContacts: contacts => dispatch(addContacts(contacts))
-});
-
-export default connect(null, mapDispatchToProps)(AddContact);
+export default AddContact;

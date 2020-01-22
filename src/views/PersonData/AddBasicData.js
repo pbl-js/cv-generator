@@ -8,10 +8,7 @@ import AddInfoTemplate from "templates/AddInfoTemplate.js";
 
 import { Person } from "styled-icons/octicons/Person";
 
-import { connect } from "react-redux";
-import { addMainInfo } from "redux/actions/cvActions";
-
-const AddBasicData = ({ addMainInfo, context }) => {
+const AddBasicData = ({ context }) => {
   console.log(context);
   const [formData, setFormData] = useState({
     photo: "",
@@ -39,7 +36,7 @@ const AddBasicData = ({ addMainInfo, context }) => {
 
   const saveData = () => {
     console.log(name);
-    addMainInfo({ photo, name, surname, job });
+    // addMainInfo({ photo, name, surname, job });
   };
 
   return (
@@ -78,11 +75,7 @@ const AddBasicData = ({ addMainInfo, context }) => {
 };
 
 AddBasicData.propTypes = {
-  addMainInfo: PropTypes.func.isRequired
+  // addMainInfo: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = dispatch => ({
-  addMainInfo: mainInfo => dispatch(addMainInfo(mainInfo))
-});
-
-export default connect(null, mapDispatchToProps)(AddBasicData);
+export default AddBasicData;

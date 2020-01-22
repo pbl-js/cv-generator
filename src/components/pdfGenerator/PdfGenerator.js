@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 
 import TemplateHarvard from "cv-templates/template1";
 
-import { connect } from "react-redux";
-
 class PdfGenerator extends PureComponent {
   render() {
     return (
@@ -68,8 +66,4 @@ PdfGenerator.propTypes = {
   )
 };
 
-const mapStateToProps = state => {
-  return state;
-};
-
-export default connect(mapStateToProps)(PdfGenerator);
+export default PdfGenerator;
