@@ -1,6 +1,6 @@
 import React from "react";
 
-import AddSchoolPopUp from "./AddSchoollPopUp";
+import AddSchoolPopUp from "views/education/AddSchoollPopUp";
 import withPopup from "hoc/withPopup";
 
 import Button from "components/atoms/Button";
@@ -11,26 +11,16 @@ import AddInfoTemplate from "templates/AddInfoTemplate.js";
 import { School } from "styled-icons/material/School";
 
 const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
-  console.log(schools.items);
   return (
     <>
-      <AddInfoTemplate
-        title={"Wykształcenie"}
-        icon={<School />}
-        handleClick={handlePopupShow}
-      >
+      <AddInfoTemplate title={"Wykształcenie"} icon={<School />} handleClick={handlePopupShow}>
         <InfoBox color="orange">
-          Wpisz ostatnio ukończoną szkołę. Jeśli masz wykształcenie wyższe lub
-          podyplomowe, podaj nazwę uczelni i kierunek studiów.
+          Wpisz ostatnio ukończoną szkołę. Jeśli masz wykształcenie wyższe lub podyplomowe, podaj nazwę uczelni i
+          kierunek studiów.
         </InfoBox>
 
         {schools.items.map(school => (
-          <ItemBox
-            id={school.id}
-            key={school.id}
-            handleEdit={handlePopupShow}
-            dispatch={dispatch}
-          >
+          <ItemBox school={school} key={school.id} dispatch={dispatch}>
             Poziom wykształcenia: {school.educationLevel}
             <br />
             Nazwa szkoły: {school.schoolName}
@@ -52,6 +42,7 @@ const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
           icon={<School />}
           handlePopupShow={handlePopupShow}
           dispatch={dispatch}
+          // defaultData={false}
         />
       )}
     </>

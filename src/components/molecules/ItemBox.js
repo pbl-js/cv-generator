@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+
 import InfoBox from "components/atoms/InfoBox.js";
+import withPopup from "hoc/withPopup";
+import AddSchoolPopUp from "views/education/AddSchoollPopUp";
 
 import { Edit } from "styled-icons/material/Edit";
 import { Trash } from "styled-icons/fa-solid/Trash";
 
 import { DELETE_SCHOOL } from "actions/actionTypes";
+import { School } from "styled-icons/material/School";
 
 const Wrapper = styled(InfoBox)`
   svg {
@@ -26,14 +30,27 @@ const Wrapper = styled(InfoBox)`
   }
 `;
 
-const ItemBox = ({ children, handleEdit, dispatch, id }) => {
+const ItemBox = ({ children, dispatch, school, isOpen, handlePopupShow }) => {
   return (
-    <Wrapper>
-      <Trash onClick={() => dispatch({ type: DELETE_SCHOOL, id })} />
-      <Edit onClick={handleEdit} />
-      {children}
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Trash onClick={() => dispatch({ type: DELETE_SCHOOL, id: school.id })} />
+
+        <Edit onClick={handlePopupShow} />
+
+        {children}
+      </Wrapper>
+      {isOpen && (
+        <AddSchoolPopUp
+          title={"Wykształcenie"}
+          icon={<School />}
+          handlePopupShow={handlePopupShow}
+          dispatch={dispatch}
+          defaultData={school}
+        />
+      )}
+    </>
   );
 };
 
-export default ItemBox;
+export default withPopup(ItemBox);

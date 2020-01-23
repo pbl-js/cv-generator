@@ -1,57 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import TextInput from "components/organisms/TextInput";
 import AddInfoPopUpTemplate from "templates/AddInfoPopUpTemplate";
 
-import { ADD_SCHOOL } from "actions/actionTypes";
+import { ADD_SCHOOL, EDIT_SCHOOL } from "actions/actionTypes";
 
-const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow }) => {
-  const [school, setSchool] = useState({
-    educationLevel: "",
-    schoolName: "",
-    specialization: "",
-    start: 0,
-    end: 0,
-    current: false
-  });
+const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow, defaultData = false }) => {
+  const [school, setSchool] = useState(defaultData);
 
-  const {
-    educationLevel,
-    schoolName,
-    specialization,
-    start,
-    end,
-    current
-  } = school;
+  const { educationLevel, schoolName, specialization, start, end, current } = school;
 
   const onChange = e => {
     setSchool({
       ...school,
       [e.target.name]: e.target.value
     });
-    console.log(educationLevel);
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch({ type: ADD_SCHOOL, schoolItem: school });
+
+    defaultData
+      ? dispatch({ type: EDIT_SCHOOL, id: defaultData.id, schoolItem: school })
+      : dispatch({ type: ADD_SCHOOL, schoolItem: school });
+
     handlePopupShow();
   };
 
   return (
     <>
-      <AddInfoPopUpTemplate
-        title={title}
-        icon={icon}
-        handlePopupShow={handlePopupShow}
-        onSubmit={onSubmit}
-      >
+      {console.log(defaultData)}
+      <AddInfoPopUpTemplate title={title} icon={icon} handlePopupShow={handlePopupShow} onSubmit={onSubmit}>
         <TextInput
           label="Poziom wykształcenia*"
           name="educationLevel"
           placeholder="Np: Inżynier"
-          value={educationLevel}
+          value={educationLevel || ""}
           onChange={onChange}
         />
 
@@ -59,7 +44,7 @@ const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow }) => {
           label="Nazwa szkoły*"
           name="schoolName"
           placeholder="Np: Zespół szkół im. Władysława Grabskiego"
-          value={schoolName}
+          value={schoolName || ""}
           onChange={onChange}
         />
 
@@ -67,7 +52,7 @@ const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow }) => {
           label="Specjalizacja"
           name="specialization"
           placeholder="Np: Programowanie i technologie web"
-          value={specialization}
+          value={specialization || ""}
           onChange={onChange}
         />
 
@@ -75,17 +60,11 @@ const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow }) => {
           label="Rok rozpoczęcia*"
           name="start"
           placeholder="Np: 2012"
-          value={start}
+          value={start || ""}
           onChange={onChange}
         />
 
-        <TextInput
-          label="Rok zakończenia*"
-          name="end"
-          placeholder="Np: 2019"
-          value={end}
-          onChange={onChange}
-        />
+        <TextInput label="Rok zakończenia*" name="end" placeholder="Np: 2019" value={end || ""} onChange={onChange} />
       </AddInfoPopUpTemplate>
     </>
   );
