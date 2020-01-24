@@ -19,7 +19,7 @@ const initialState = {
     items: [
       {
         id: 1,
-        educationalLevel: "Inżynier",
+        educationLevel: "Inżynier",
         schoolName: "Wyższa szkoła ekonomii i innowacji w lublinie",
         specialization: "Programowanie i technologie web",
         start: 2014,
@@ -51,11 +51,7 @@ const initialState = {
 const CVdataContextProvider = props => {
   const [cvdata, dispatch] = useReducer(cvdataReducer, initialState);
 
-  return (
-    <CVdataContext.Provider value={{ cvdata, dispatch }}>
-      {props.children}
-    </CVdataContext.Provider>
-  );
+  return <CVdataContext.Provider value={{ cvdata, dispatch }}>{props.children}</CVdataContext.Provider>;
 };
 
 export default CVdataContextProvider;

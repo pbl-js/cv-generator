@@ -6,7 +6,20 @@ import AddInfoPopUpTemplate from "templates/AddInfoPopUpTemplate";
 
 import { ADD_SCHOOL, EDIT_SCHOOL } from "actions/actionTypes";
 
-const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow, defaultData = false }) => {
+const AddSchoolPopUp = ({
+  dispatch,
+  title,
+  icon,
+  handlePopupShow,
+  defaultData = {
+    educationLevel: "",
+    schoolName: "",
+    specialization: "",
+    start: "",
+    end: "",
+    current: ""
+  }
+}) => {
   const [school, setSchool] = useState(defaultData);
 
   const { educationLevel, schoolName, specialization, start, end, current } = school;
@@ -21,22 +34,21 @@ const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow, defaultData = 
   const onSubmit = e => {
     e.preventDefault();
 
-    defaultData
-      ? dispatch({ type: EDIT_SCHOOL, id: defaultData.id, schoolItem: school })
-      : dispatch({ type: ADD_SCHOOL, schoolItem: school });
+    defaultData.schoolName === ""
+      ? dispatch({ type: ADD_SCHOOL, schoolItem: school })
+      : dispatch({ type: EDIT_SCHOOL, id: defaultData.id, schoolItem: school });
 
     handlePopupShow();
   };
 
   return (
     <>
-      {console.log(defaultData)}
       <AddInfoPopUpTemplate title={title} icon={icon} handlePopupShow={handlePopupShow} onSubmit={onSubmit}>
         <TextInput
           label="Poziom wykształcenia*"
           name="educationLevel"
           placeholder="Np: Inżynier"
-          value={educationLevel || ""}
+          value={educationLevel}
           onChange={onChange}
         />
 
@@ -44,7 +56,7 @@ const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow, defaultData = 
           label="Nazwa szkoły*"
           name="schoolName"
           placeholder="Np: Zespół szkół im. Władysława Grabskiego"
-          value={schoolName || ""}
+          value={schoolName}
           onChange={onChange}
         />
 
@@ -52,19 +64,13 @@ const AddSchoolPopUp = ({ dispatch, title, icon, handlePopupShow, defaultData = 
           label="Specjalizacja"
           name="specialization"
           placeholder="Np: Programowanie i technologie web"
-          value={specialization || ""}
+          value={specialization}
           onChange={onChange}
         />
 
-        <TextInput
-          label="Rok rozpoczęcia*"
-          name="start"
-          placeholder="Np: 2012"
-          value={start || ""}
-          onChange={onChange}
-        />
+        <TextInput label="Rok rozpoczęcia*" name="start" placeholder="Np: 2012" value={start} onChange={onChange} />
 
-        <TextInput label="Rok zakończenia*" name="end" placeholder="Np: 2019" value={end || ""} onChange={onChange} />
+        <TextInput label="Rok zakończenia*" name="end" placeholder="Np: 2019" value={end} onChange={onChange} />
       </AddInfoPopUpTemplate>
     </>
   );

@@ -6,7 +6,7 @@ import withPopup from "hoc/withPopup";
 
 import Box from "components/atoms/Box";
 import BoxHeader from "components/atoms/BoxHeader";
-import Header from "components/atoms/Header";
+import Header from "components/atoms/Header.js";
 import SettingsPopup from "components/organisms/SettingsPopup";
 
 import { Settings } from "styled-icons/material/Settings";
@@ -22,14 +22,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const AddInfoTemplate = ({
-  children,
-  title,
-  icon,
-  handleClick,
-  isOpen,
-  handlePopupShow
-}) => {
+const AddInfoTemplate = ({ children, title, icon, isOpen, handlePopupShow }) => {
   return (
     <Box>
       <BoxHeader>
