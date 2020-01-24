@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Button from "components/atoms/Button";
@@ -10,6 +10,8 @@ import AddInfoTemplate from "templates/AddInfoTemplate.js";
 import { BarChartGrouped as Skills } from "styled-icons/remix-line/BarChartGrouped";
 import { Cancel } from "styled-icons/material/Cancel";
 
+import { ADD_SKILL, DELETE_SKILL } from "actions/actionTypes";
+
 const SkillWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -17,43 +19,51 @@ const SkillWrapper = styled.div`
   margin-bottom: 5px;
 `;
 
-const AddSkills = ({ handlePopupShow, isOpen }) => {
-  console.log(isOpen);
+const AddSkills = ({ skills, dispatch }) => {
+  const [skillItem, setSkillItem] = useState({
+    title: ""
+  });
+
+  const handleInput = e => {
+    setSkillItem({
+      title: e.target.value
+    });
+  };
+
+  const addSkill = () => {
+    dispatch({ type: ADD_SKILL, skillItem });
+    setSkillItem({
+      title: ""
+    });
+  };
+
+  const deleteSkill = id => {
+    dispatch({ type: DELETE_SKILL, id });
+  };
+
   return (
     <AddInfoTemplate title="Umiejętności" icon={<Skills />}>
       <InfoBox color="orange">
-        Pokaż swoje mocne strony. Wpisz umiejętności, które pasują do oczekiwań
-        pracodawcy opisanych w ogłoszeniu.
+        Pokaż swoje mocne strony. Wpisz umiejętności, które pasują do oczekiwań pracodawcy opisanych w ogłoszeniu.
       </InfoBox>
 
       <SkillWrapper>
-        <SkillItem>
-          JavaScritp <Cancel />
-        </SkillItem>
-        <SkillItem>
-          JS <Cancel />
-        </SkillItem>
-        <SkillItem>
-          PHP <Cancel />
-        </SkillItem>
-        <SkillItem>
-          Django <Cancel />
-        </SkillItem>
-        <SkillItem>
-          OOP JS <Cancel />
-        </SkillItem>
-        <SkillItem>
-          HTML <Cancel />
-        </SkillItem>
+        {skills.items.map(item => (
+          <SkillItem key={item.id}>
+            {item.title}
+            <Cancel onClick={() => deleteSkill(item.id)} />
+          </SkillItem>
+        ))}
       </SkillWrapper>
 
       <TextInput
         label="Wpisz swoje umiejętności*"
         placeholder="Np: Operowanie wózkiem widłowym"
-        error="elo"
+        value={skillItem.title}
+        onChange={handleInput}
       />
 
-      <Button>Dodaj pozycję</Button>
+      <Button onClick={addSkill}>Dodaj pozycję</Button>
     </AddInfoTemplate>
   );
 };

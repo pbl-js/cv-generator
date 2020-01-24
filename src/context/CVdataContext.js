@@ -32,7 +32,10 @@ const initialState = {
     customTitle: "",
     hide: false,
     break: false,
-    items: []
+    items: [
+      { id: 1, title: "JavaScipt" },
+      { id: 2, title: "PHP" }
+    ]
   },
   experience: {
     customTitle: "",
