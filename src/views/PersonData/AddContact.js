@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 
 import AddInfoTemplate from "templates/AddInfoTemplate.js";
@@ -7,43 +7,69 @@ import InfoBox from "components/atoms/InfoBox";
 
 import { Phone } from "styled-icons/boxicons-solid/Phone";
 
-const AddContact = ({ addContacts }) => {
-  const [formData, setFormData] = useState({
-    phone: "",
-    email: ""
-  });
+import { CVdataContext } from "context/CVdataContext";
 
-  const { photo, name, surname, job } = formData;
+import { SET_CONTACT } from "actions/actionTypes";
 
-  const handleInputChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+const AddContact = () => {
+  const {
+    cvdata: { contact },
+    dispatch
+  } = useContext(CVdataContext);
+
+  const [contactValue, setContactValue] = useState(contact);
+
+  const { phone, email, website } = contactValue;
+
+  const handleBlur = e => {
+    dispatch({ type: SET_CONTACT, name: [e.target.name], value: contactValue[e.target.name] });
   };
 
-  const saveData = () => {
-    console.log(name);
-    // addContacts({ photo, name, surname, job });
+  const handleChange = e => {
+    setContactValue({
+      ...contactValue,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
     <AddInfoTemplate title="Dane kontaktowe" icon={<Phone />}>
       <InfoBox color="orange">
-        Numer telefonu i adres email to podstawowe dane kontaktowe. Dodatkowym
-        atutem może być również podanie strony internetowej.
+        Numer telefonu i adres email to podstawowe dane kontaktowe. Dodatkowym atutem może być również podanie strony
+        internetowej.
       </InfoBox>
 
       <InfoBox color="blue">
-        Nie martw się, nasza strona nie przechowuje tych danych, nigdy nie
-        dostaniesz od nas żadnej wiadomości na podany adres email!
+        Nie martw się, nasza strona nie przechowuje tych danych, nigdy nie dostaniesz od nas żadnej wiadomości na podany
+        adres email!
       </InfoBox>
 
       <TextInput
         label="Telefon*"
+        name="phone"
         placeholder="Np: 439 327 237"
-        onChange={handleInputChange}
+        value={phone || ""}
+        onChange={e => handleChange(e)}
+        onBlur={e => handleBlur(e)}
       />
 
-      <TextInput label="Email*" placeholder="Np: johndoe@darmowecv.pl" />
-      <button onClick={saveData}>Zapisz</button>
+      <TextInput
+        label="Email*"
+        name="email"
+        placeholder="Np: johndoe@darmowecv.pl"
+        value={email || ""}
+        onChange={e => handleChange(e)}
+        onBlur={e => handleBlur(e)}
+      />
+
+      <TextInput
+        label="Website*"
+        name="website"
+        placeholder="Np: www.programowando.pl"
+        value={website || ""}
+        onChange={e => handleChange(e)}
+        onBlur={e => handleBlur(e)}
+      />
     </AddInfoTemplate>
   );
 };

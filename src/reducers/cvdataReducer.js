@@ -8,11 +8,20 @@ import {
   ADD_EXPERIENCE,
   EDIT_EXPERIENCE,
   DELETE_EXPERIENCE,
-  SET_ABOUTME
+  SET_ABOUTME,
+  SET_CONTACT
 } from "actions/actionTypes";
 
 export const cvdataReducer = (state, action) => {
   switch (action.type) {
+    case SET_CONTACT:
+      return {
+        ...state,
+        contact: {
+          ...state.contact,
+          [action.name]: [action.value]
+        }
+      };
     case ADD_SCHOOL:
       return {
         ...state,

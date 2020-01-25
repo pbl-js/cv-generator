@@ -12,8 +12,7 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   input:focus ~ label {
-    color: ${({ theme, error }) =>
-      error ? theme.color.red : theme.color.orange};
+    color: ${({ theme, error }) => (error ? theme.color.red : theme.color.orange)};
   }
 
   input:focus ~ span {
@@ -25,8 +24,7 @@ const StyledWrapper = styled.div`
 const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme, error }) =>
-    error ? theme.color.red : theme.color.darkGray};
+  color: ${({ theme, error }) => (error ? theme.color.red : theme.color.darkGray)};
   transition: 0.3s;
 `;
 
@@ -38,7 +36,7 @@ const StyledInput = styled.input`
   border: 0;
   outline: 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.standardGray};
-  color: ${({ theme }) => theme.color.darkGray};
+  color: ${({ theme }) => theme.color.veryDarkGray};
 
   ::placeholder {
     color: ${({ theme }) => theme.color.standardGray};
@@ -71,15 +69,7 @@ const StyledError = styled.p`
   font-size: ${({ theme }) => theme.fontSize.s};
 `;
 
-const TextInput = ({
-  label,
-  name,
-  placeholder,
-  value,
-  onChange,
-  onBlur,
-  error
-}) => {
+const TextInput = ({ label, name, placeholder, value, onChange, onBlur, error }) => {
   return (
     <MainWrapper>
       <StyledWrapper error={error}>

@@ -11,7 +11,11 @@ const initialState = {
     surname: "",
     position: ""
   },
-  contact: [],
+  contact: {
+    phone: "797792613",
+    email: "jogobello4@gmail.com",
+    website: "www.pablo.pl"
+  },
   schools: {
     customTitle: "",
     hide: false,
