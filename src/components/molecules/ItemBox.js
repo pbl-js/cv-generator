@@ -1,15 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import InfoBox from "components/atoms/InfoBox.js";
 import withPopup from "hoc/withPopup";
-import AddSchoolPopUp from "views/education/AddSchoollPopUp";
 
 import { Edit } from "styled-icons/material/Edit";
 import { Trash } from "styled-icons/fa-solid/Trash";
-
-import { DELETE_SCHOOL } from "actions/actionTypes";
-import { School } from "styled-icons/material/School";
 
 const Wrapper = styled(InfoBox)`
   svg {
@@ -30,11 +27,11 @@ const Wrapper = styled(InfoBox)`
   }
 `;
 
-const ItemBox = ({ children, dispatch, school, isOpen, handlePopupShow, Popup, icon }) => {
+const ItemBox = ({ children, dispatch, deleteItem, defaultData, isOpen, handlePopupShow, Popup, icon }) => {
   return (
     <>
       <Wrapper>
-        <Trash onClick={() => dispatch({ type: DELETE_SCHOOL, id: school.id })} />
+        <Trash onClick={deleteItem} />
 
         <Edit onClick={handlePopupShow} />
 
@@ -46,11 +43,21 @@ const ItemBox = ({ children, dispatch, school, isOpen, handlePopupShow, Popup, i
           icon={icon}
           handlePopupShow={handlePopupShow}
           dispatch={dispatch}
-          defaultData={school}
+          defaultData={defaultData}
         />
       )}
     </>
   );
+};
+
+ItemBox.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired,
+  defaultData: PropTypes.object,
+  isOpen: PropTypes.bool.isRequired,
+  handlePopupShow: PropTypes.func.isRequired,
+  Popup: PropTypes.func.isRequired,
+  icon: PropTypes.element.isRequired
 };
 
 export default withPopup(ItemBox);

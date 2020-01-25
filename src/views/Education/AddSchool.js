@@ -10,6 +10,8 @@ import AddInfoTemplate from "templates/AddInfoTemplate.js";
 
 import { School } from "styled-icons/material/School";
 
+import { DELETE_SCHOOL } from "actions/actionTypes";
+
 const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
   return (
     <>
@@ -20,7 +22,14 @@ const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
         </InfoBox>
 
         {schools.items.map(item => (
-          <ItemBox key={item.id} data={item} icon={<School />} dispatch={dispatch} Popup={AddSchoolPopUp}>
+          <ItemBox
+            key={item.id}
+            defaultData={item}
+            icon={<School />}
+            dispatch={dispatch}
+            Popup={AddSchoolPopUp}
+            deleteItem={() => dispatch({ type: DELETE_SCHOOL, id: item.id })}
+          >
             Poziom wykształcenia: {item.educationLevel}
             <br />
             Nazwa szkoły: {item.schoolName}
