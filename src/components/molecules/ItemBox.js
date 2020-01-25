@@ -30,7 +30,7 @@ const Wrapper = styled(InfoBox)`
   }
 `;
 
-const ItemBox = ({ children, dispatch, school, isOpen, handlePopupShow }) => {
+const ItemBox = ({ children, dispatch, school, isOpen, handlePopupShow, Popup, icon }) => {
   return (
     <>
       <Wrapper>
@@ -41,9 +41,9 @@ const ItemBox = ({ children, dispatch, school, isOpen, handlePopupShow }) => {
         {children}
       </Wrapper>
       {isOpen && (
-        <AddSchoolPopUp
-          title={"Wykształcenie"}
-          icon={<School />}
+        <Popup
+          title="Wykształcenie"
+          icon={icon}
           handlePopupShow={handlePopupShow}
           dispatch={dispatch}
           defaultData={school}

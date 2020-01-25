@@ -19,17 +19,17 @@ const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
           kierunek studiów.
         </InfoBox>
 
-        {schools.items.map(school => (
-          <ItemBox school={school} key={school.id} dispatch={dispatch}>
-            Poziom wykształcenia: {school.educationLevel}
+        {schools.items.map(item => (
+          <ItemBox key={item.id} data={item} icon={<School />} dispatch={dispatch} Popup={AddSchoolPopUp}>
+            Poziom wykształcenia: {item.educationLevel}
             <br />
-            Nazwa szkoły: {school.schoolName}
+            Nazwa szkoły: {item.schoolName}
             <br />
-            Specjalizacja: {school.specialization}
+            Specjalizacja: {item.specialization}
             <br />
-            Rok rozpoczęcia: {school.start}
+            Rok rozpoczęcia: {item.start}
             <br />
-            Rok zakończenia: {school.end}
+            Rok zakończenia: {item.end}
           </ItemBox>
         ))}
 
@@ -42,7 +42,6 @@ const AddSchool = ({ schools, dispatch, handlePopupShow, isOpen }) => {
           icon={<School />}
           handlePopupShow={handlePopupShow}
           dispatch={dispatch}
-          // defaultData={false}
         />
       )}
     </>
