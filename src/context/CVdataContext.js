@@ -41,7 +41,18 @@ const initialState = {
     customTitle: "",
     hide: false,
     break: false,
-    items: []
+    items: [
+      {
+        id: 1,
+        position: "Własna działalność gospodarcza",
+        company: "PABLO Company",
+        city: "Lublin",
+        start: 2013,
+        end: 2019,
+        description:
+          "Prowadzenie sklepu internetowego. Konfiguracja kampanii reklamowych na platformach: Youtube, Facebook, Google. Przygotowywanie materiałów promocyjnych, w tym: animacje reklamowe (AfterEffect, Blender, Photoshop), posty graficzne na potrzeby portali społecznościowych, grafika reklamowa."
+      }
+    ]
   },
   aboutMe: {
     customTitle: "",

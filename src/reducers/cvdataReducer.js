@@ -1,5 +1,14 @@
 import uuid from "uuid/v1";
-import { ADD_SCHOOL, DELETE_SCHOOL, EDIT_SCHOOL, ADD_SKILL, DELETE_SKILL } from "actions/actionTypes";
+import {
+  ADD_SCHOOL,
+  DELETE_SCHOOL,
+  EDIT_SCHOOL,
+  ADD_SKILL,
+  DELETE_SKILL,
+  ADD_EXPERIENCE,
+  EDIT_EXPERIENCE,
+  DELETE_EXPERIENCE
+} from "actions/actionTypes";
 
 export const cvdataReducer = (state, action) => {
   switch (action.type) {
@@ -49,6 +58,38 @@ export const cvdataReducer = (state, action) => {
         skills: {
           ...state.skillls,
           items: [...state.skills.items.filter(item => item.id !== action.id)]
+        }
+      };
+    case ADD_EXPERIENCE:
+      return {
+        ...state,
+        experience: {
+          ...state.experience,
+          items: [
+            ...state.experience.items,
+            {
+              id: uuid(),
+              ...action.experienceItem
+            }
+          ]
+        }
+      };
+    case EDIT_EXPERIENCE:
+      return {
+        ...state,
+        experience: {
+          ...state.experience,
+          items: state.experience.items.map(item =>
+            item.id === action.id ? { id: action.id, ...action.experienceItem } : item
+          )
+        }
+      };
+    case DELETE_EXPERIENCE:
+      return {
+        ...state,
+        experience: {
+          ...state.experience,
+          items: [...state.experience.items.filter(item => item.id !== action.id)]
         }
       };
     default:

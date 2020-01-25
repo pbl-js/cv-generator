@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import AddExperience from "views/experience/AddExperience";
 import AddAboutMe from "views/experience/AddAboutMe";
 
-const Experience = props => {
+import { CVdataContext } from "context/CVdataContext";
+
+const Experience = () => {
+  const {
+    cvdata: { experience, aboutMe },
+    dispatch
+  } = useContext(CVdataContext);
+
   return (
     <>
-      <AddExperience />
-      <AddAboutMe />
+      <AddExperience experience={experience} dispatch={dispatch} />
+      <AddAboutMe aboutMe={aboutMe} dispatch={dispatch} />
     </>
   );
 };

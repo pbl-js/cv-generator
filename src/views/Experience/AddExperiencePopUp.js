@@ -1,50 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import TextInput from "components/organisms/TextInput";
-import BoxHeader from "components/atoms/BoxHeader";
-// import DarkBackground from "components/atoms/DarkBackground";
-import PopUpBox from "components/atoms/PopUpBox";
-import Button from "components/atoms/Button";
+import AddInfoPopUpTemplate from "templates/AddInfoPopUpTemplate";
 
-import { Close } from "styled-icons/material/Close";
-import { School } from "styled-icons/material/School";
+import { ADD_EXPERIENCE, EDIT_EXPERIENCE } from "actions/actionTypes";
 
-const AddExperiencePopUp = ({ handlePopupShow }) => {
+const AddSchoolPopUp = ({
+  dispatch,
+  title,
+  icon,
+  handlePopupShow,
+  defaultData = {
+    position: "",
+    company: "",
+    city: "",
+    start: "",
+    end: "",
+    description: ""
+  }
+}) => {
+  const [experience, setExperience] = useState(defaultData);
+
+  const { position, company, city, start, end, description } = experience;
+
+  const onChange = e => {
+    setExperience({
+      ...experience,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    defaultData.position === ""
+      ? dispatch({ type: ADD_EXPERIENCE, experienceItem: experience })
+      : dispatch({ type: EDIT_EXPERIENCE, id: defaultData.id, experienceItem: experience });
+
+    handlePopupShow();
+  };
+
   return (
     <>
-      <PopUpBox>
-        <BoxHeader>
-          <School />
-          <h1>Wykształcenie</h1>
-          <Close onClick={handlePopupShow} />
-        </BoxHeader>
-
-        <TextInput label="Poziom wykształcenia*" placeholder="Np: Inżynier" />
-
+      <AddInfoPopUpTemplate title={title} icon={icon} handlePopupShow={handlePopupShow} onSubmit={onSubmit}>
         <TextInput
-          label="Nazwa szkoły*"
-          placeholder="Np: Zespół szkół im. Władysława Grabskiego"
+          label="Stanowisko*"
+          name="position"
+          placeholder="Np: Kierownik ds. dystrybucji"
+          value={position}
+          onChange={onChange}
         />
 
         <TextInput
-          label="Specjalizacja"
-          placeholder="Np: Programowanie i technologie web"
+          label="Nazwa firmy*"
+          name="company"
+          placeholder="Np: Best Software house"
+          value={company}
+          onChange={onChange}
         />
 
-        <TextInput label="Rok rozpoczęcia*" placeholder="Np: 2012" />
+        <TextInput label="Lokalizacja" name="city" placeholder="Np: Warszawa" value={city} onChange={onChange} />
 
-        <TextInput label="Rok zakończenia*" placeholder="Np: 2019" />
+        <TextInput label="Rok rozpoczęcia*" name="start" placeholder="Np: 2012" value={start} onChange={onChange} />
 
-        <Button>Zapisz</Button>
-      </PopUpBox>
-      {/* <DarkBackground /> */}
+        <TextInput label="Rok zakończenia*" name="end" placeholder="Np: 2019" value={end} onChange={onChange} />
+
+        <TextInput
+          label="Opis wykonywanych czynności"
+          name="description"
+          placeholder="Tutaj opisz czym zajmowałeś się w pracy"
+          value={description}
+          onChange={onChange}
+        />
+      </AddInfoPopUpTemplate>
     </>
   );
 };
 
-AddExperiencePopUp.propTypes = {
+AddSchoolPopUp.propTypes = {
   handlePopupShow: PropTypes.func.isRequired
 };
 
-export default AddExperiencePopUp;
+export default AddSchoolPopUp;

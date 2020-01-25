@@ -4,3 +4,6 @@ export const DELETE_SCHOOL = "DELETE_SCHOOL";
 export const EDIT_SCHOOL = "EDIT_SCHOOL";
 export const ADD_SKILL = "ADD_SKILL";
 export const DELETE_SKILL = "DELETE_SKILL";
+export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
+export const EDIT_EXPERIENCE = "EDIT_EXPERIENCE";
+export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE";
