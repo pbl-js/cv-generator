@@ -7,7 +7,8 @@ import {
   DELETE_SKILL,
   ADD_EXPERIENCE,
   EDIT_EXPERIENCE,
-  DELETE_EXPERIENCE
+  DELETE_EXPERIENCE,
+  SET_ABOUTME
 } from "actions/actionTypes";
 
 export const cvdataReducer = (state, action) => {
@@ -90,6 +91,14 @@ export const cvdataReducer = (state, action) => {
         experience: {
           ...state.experience,
           items: [...state.experience.items.filter(item => item.id !== action.id)]
+        }
+      };
+    case SET_ABOUTME:
+      return {
+        ...state,
+        aboutMe: {
+          ...state.aboutMe,
+          text: action.text
         }
       };
     default:
