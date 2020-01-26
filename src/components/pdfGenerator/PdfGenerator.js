@@ -1,31 +1,25 @@
-import React, { useContext } from "react";
-import { PDFViewer } from "@react-pdf/renderer";
+import React, { PureComponent } from "react";
+import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import PropTypes from "prop-types";
 
 import TemplateHarvard from "cv-templates/template1";
-import { CVdataContext } from "context/CVdataContext";
 
-const PdfGenerator = () => {
-  const { cvdata } = useContext(CVdataContext);
-
-  return (
-    <div>
-      <PDFViewer width="100%" height="500px">
-        <TemplateHarvard data={cvdata} />
-      </PDFViewer>
+class PdfGenerator extends PureComponent {
+  render() {
+    return (
       <div>
-        {/* <PDFDownloadLink
-            document={<TemplateHarvard data={this.props} />}
-            fileName="somename.pdf"
-          >
-            {({ blob, url, loading, error }) =>
-              loading ? "Loading document..." : <button>Download</button>
-            }
+        <PDFViewer width="100%" height="500px">
+          <TemplateHarvard data={this.props.cvdata} />
+        </PDFViewer>
+        <div>
+          {/* <PDFDownloadLink document={<TemplateHarvard data={this.props.cvdata} />} fileName="somename.pdf">
+            {({ blob, url, loading, error }) => (loading ? "Loading document..." : <button>Download</button>)}
           </PDFDownloadLink> */}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 PdfGenerator.propTypes = {
   mainInfo: PropTypes.shape({

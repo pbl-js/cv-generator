@@ -15,13 +15,7 @@ const StyledWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const CreatorTemplate = ({
-  history,
-  location,
-  children,
-  handlePopupShow,
-  isOpen
-}) => {
+const CreatorTemplate = ({ history, location, children, handlePopupShow, isOpen }) => {
   const [progressData, setProgressData] = useState({
     progress: 1
   });
@@ -55,10 +49,7 @@ const CreatorTemplate = ({
         actualPage={creatorRoutes[index].name}
       />
       {children}
-      <MobileNavigation
-        progressData={progressData}
-        handlePageChange={handlePageChange}
-      />
+      <MobileNavigation progressData={progressData} handlePageChange={handlePageChange} />
       {progressData.progress < 5 && <PreviewIcon onClick={handlePopupShow} />}
       {isOpen && <ShowCvPopUp handlePopupShow={handlePopupShow} />}
     </StyledWrapper>

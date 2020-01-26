@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import PdfGenerator from "components/pdfGenerator/PdfGenerator";
 
+import { CVdataContext } from "context/CVdataContext";
+
 const Template = () => {
+  const { cvdata } = useContext(CVdataContext);
+
   return (
     <div>
-      <PdfGenerator />
+      <PdfGenerator cvdata={cvdata} />
     </div>
   );
 };

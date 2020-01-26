@@ -62,7 +62,7 @@ const initialState = {
     customTitle: "",
     hide: false,
     break: false,
-    text: ""
+    text: "gsdfgsdf"
   }
 };
 

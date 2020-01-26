@@ -25,7 +25,7 @@ const AddAboutMe = ({ aboutMe: { text }, dispatch }) => {
         name="aboutMe"
         placeholder="Opisz się w kilku zdaniach"
         value={text}
-        onChange={handleChange}
+        onChange={e => handleChange(e)}
       />
     </AddInfoTemplate>
   );

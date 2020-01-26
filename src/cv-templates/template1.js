@@ -9,8 +9,7 @@ import home from "assets/icons/home.png";
 
 Font.register({
   family: "Roboto",
-  src:
-    "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.ttf"
+  src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.ttf"
 });
 
 const Container = styled.View`
@@ -124,7 +123,8 @@ const Description = styled(Paragraph)`
   margin-bottom: 15px;
 `;
 
-const MainHeaderComponent = ({ name, surname, job }) => {
+const MainHeaderComponent = ({ name, surname, position }) => {
+  console.log(position);
   const MainHeader = styled.View`
     height: 168px;
     background-color: #e8e8e8;
@@ -149,7 +149,7 @@ const MainHeaderComponent = ({ name, surname, job }) => {
         {`${name} ${surname}`}
       </MainHeaderBigHeader>
       <MainHeaderLine dark />
-      <Header dark>{job}</Header>
+      <Header dark>{position}</Header>
     </MainHeader>
   );
 };
@@ -184,7 +184,7 @@ const ContactsComponent = contacts => {
         return <ContactTypeIcon src={phone} />;
       case "email":
         return <ContactTypeIcon src={email} />;
-      case "home":
+      case "website":
         return <ContactTypeIcon src={home} />;
       default:
         return home;
@@ -196,31 +196,45 @@ const ContactsComponent = contacts => {
       <Header>kontakt</Header>
       <Line small bold />
       <AsideSmallConteiner>
-        {contacts.map(contact => (
+        {/* {contacts.map(contact => (
           <ContactType key={contact.id}>
             <ContactTypeCircle>{iconType(contact.type)}</ContactTypeCircle>
             <Paragraph>{contact.body}</Paragraph>
           </ContactType>
-        ))}
+        ))} */}
+        <ContactType>
+          <ContactTypeCircle>{iconType("phone")}</ContactTypeCircle>
+          <Paragraph>{contacts.phone}</Paragraph>
+        </ContactType>
+
+        <ContactType>
+          <ContactTypeCircle>{iconType("email")}</ContactTypeCircle>
+          <Paragraph>{contacts.email}</Paragraph>
+        </ContactType>
+
+        <ContactType>
+          <ContactTypeCircle>{iconType("website")}</ContactTypeCircle>
+          <Paragraph>{contacts.website}</Paragraph>
+        </ContactType>
       </AsideSmallConteiner>
       <AsideLineSeparator />
     </>
   );
 };
 
-const EducationsComponent = educations => {
+const EducationsComponent = schools => {
   return (
     <>
       <Header>wykształcenie</Header>
       <Line small bold />
       <AsideSmallConteiner>
-        {educations.map(education => {
-          const { id, degree, academy, years } = education;
+        {schools.items.map(school => {
+          const { id, educationLevel, schoolName, specialization, start, end, current } = school;
           return (
             <EducationItem key={id}>
-              <EducationItemHeader>{degree}</EducationItemHeader>
-              <Paragraph>{academy}</Paragraph>
-              <Paragraph>{`${years[0]} - ${years[1]}`}</Paragraph>
+              <EducationItemHeader>{`${educationLevel} | ${specialization}`}</EducationItemHeader>
+              <Paragraph>{schoolName}</Paragraph>
+              <Paragraph>{`${start} - ${current ? "Obecnie" : end}`}</Paragraph>
             </EducationItem>
           );
         })}
@@ -252,10 +266,10 @@ const SkillsComponent = skills => {
       <Line small bold />
 
       <AsideSmallConteiner>
-        {skills.map(skill => (
+        {skills.items.map(skill => (
           <SkillItem key={skill.id}>
             <SkillIcon />
-            <Paragraph>{skill.name}</Paragraph>
+            <Paragraph>{skill.title}</Paragraph>
           </SkillItem>
         ))}
       </AsideSmallConteiner>
@@ -271,19 +285,19 @@ const AboutMeComponent = aboutMe => {
     <>
       <Header dark>O mnie</Header>
       <Line small bold dark />
-      <StyledParagraph dark>{aboutMe}</StyledParagraph>
+      <StyledParagraph dark>{aboutMe.text}</StyledParagraph>
     </>
   );
 };
 
-const ExperiencesComponent = experiences => {
+const ExperiencesComponent = experience => {
   return (
     <>
       <StyledHeader dark>Doświadczenie</StyledHeader>
       <Line small bold dark />
 
-      {experiences.map(experience => {
-        const { id, position, company, city, description } = experience;
+      {experience.items.map(experience => {
+        const { id, position, company, city, start, end, description } = experience;
         return (
           <ExperienceItemContainer key={id} wrap={false}>
             <ExperienceHeader dark>{position}</ExperienceHeader>
@@ -297,26 +311,27 @@ const ExperiencesComponent = experiences => {
 };
 
 const MyDocument = ({ data }) => {
-  const { contacts, educations, skills, aboutMe, experiences, mainInfo } = data;
+  const { personData, contact, schools, skills, experience, aboutMe } = data;
+  console.log(personData);
   return (
     <Document>
       <Page>
         <Container>
           <Aside>
-            <Foto src={mainInfo.photo} />
+            <Foto src={personData.photo} />
 
-            {ContactsComponent(contacts)}
+            {ContactsComponent(contact)}
 
-            {EducationsComponent(educations)}
+            {EducationsComponent(schools)}
 
             {SkillsComponent(skills)}
           </Aside>
           <Main>
-            {MainHeaderComponent(mainInfo)}
+            {MainHeaderComponent(personData)}
             <MainContainer>
               {AboutMeComponent(aboutMe)}
               <Line dark />
-              {ExperiencesComponent(experiences)}
+              {ExperiencesComponent(experience)}
             </MainContainer>
           </Main>
         </Container>
@@ -325,46 +340,46 @@ const MyDocument = ({ data }) => {
   );
 };
 
-MyDocument.propTypes = {
-  data: PropTypes.shape({
-    mainInfo: PropTypes.shape({
-      photo: PropTypes.any,
-      name: PropTypes.string.isRequired,
-      surname: PropTypes.string.isRequired,
-      job: PropTypes.string
-    }),
-    contacts: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        type: PropTypes.oneOf(["phone", "email", "home"]).isRequired,
-        body: PropTypes.string.isRequired
-      })
-    ),
-    education: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        degree: PropTypes.string.isRequired,
-        academy: PropTypes.string.isRequired,
-        years: PropTypes.arrayOf([PropTypes.number])
-      })
-    ),
-    skills: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired
-      })
-    ),
-    aboutMe: PropTypes.string,
-    experiences: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        position: PropTypes.string.isRequired,
-        company: PropTypes.string.isRequired,
-        city: PropTypes.string,
-        description: PropTypes.string
-      })
-    )
-  })
-};
+// MyDocument.propTypes = {
+//   data: PropTypes.shape({
+//     mainInfo: PropTypes.shape({
+//       photo: PropTypes.any,
+//       name: PropTypes.string.isRequired,
+//       surname: PropTypes.string.isRequired,
+//       job: PropTypes.string
+//     }),
+//     contacts: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         type: PropTypes.oneOf(["phone", "email", "home"]).isRequired,
+//         body: PropTypes.string.isRequired
+//       })
+//     ),
+//     education: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         degree: PropTypes.string.isRequired,
+//         academy: PropTypes.string.isRequired,
+//         years: PropTypes.arrayOf([PropTypes.number])
+//       })
+//     ),
+//     skills: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         name: PropTypes.string.isRequired
+//       })
+//     ),
+//     aboutMe: PropTypes.string,
+//     experiences: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         position: PropTypes.string.isRequired,
+//         company: PropTypes.string.isRequired,
+//         city: PropTypes.string,
+//         description: PropTypes.string
+//       })
+//     )
+//   })
+// };
 
 export default MyDocument;
