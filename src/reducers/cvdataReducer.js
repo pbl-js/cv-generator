@@ -58,9 +58,7 @@ export const cvdataReducer = (state, action) => {
         ...state,
         schools: {
           ...state.schools,
-          items: state.schools.items.map(item =>
-            item.id === action.id ? { id: action.id, ...action.schoolItem } : item
-          )
+          items: state.schools.items.map(item => (item.id === action.id ? { id: item.id, ...action.schoolItem } : item))
         }
       };
     case ADD_SKILL:

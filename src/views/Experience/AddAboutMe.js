@@ -12,11 +12,11 @@ const AddAboutMe = ({ aboutMe: { text = "" }, dispatch }) => {
   const [inputValue, setInputValue] = useState(text);
 
   const handleChange = e => {
-    dispatch({ type: SET_ABOUTME, text: e.target.value });
+    setInputValue(e.target.value);
   };
 
   const handleBlur = e => {
-    dispatch({ type: SET_ABOUTME, text: e.target.value });
+    dispatch({ type: SET_ABOUTME, text: inputValue });
   };
 
   return (
@@ -30,8 +30,9 @@ const AddAboutMe = ({ aboutMe: { text = "" }, dispatch }) => {
         label="Tu wpisz do czego dążysz w pracy*"
         name="aboutMe"
         placeholder="Opisz się w kilku zdaniach"
-        value={text}
+        value={inputValue}
         onChange={e => handleChange(e)}
+        onBlur={e => handleBlur(e)}
       />
     </AddInfoTemplate>
   );

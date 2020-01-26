@@ -69,7 +69,7 @@ const initialState = {
 const CVdataContextProvider = props => {
   const [cvdata, dispatch] = useReducer(cvdataReducer, initialState, () => {
     const localData = localStorage.getItem("cvdata");
-    return localData ? JSON.parse(localData) : [];
+    return localData ? JSON.parse(localData) : initialState;
   });
 
   useEffect(() => {
