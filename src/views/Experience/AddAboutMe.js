@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import InfoBox from "components/atoms/InfoBox";
 import TextInput from "components/organisms/TextInput";
@@ -8,8 +8,14 @@ import { Info } from "styled-icons/fa-solid/Info";
 
 import { SET_ABOUTME } from "actions/actionTypes";
 
-const AddAboutMe = ({ aboutMe: { text }, dispatch }) => {
+const AddAboutMe = ({ aboutMe: { text = "" }, dispatch }) => {
+  const [inputValue, setInputValue] = useState(text);
+
   const handleChange = e => {
+    dispatch({ type: SET_ABOUTME, text: e.target.value });
+  };
+
+  const handleBlur = e => {
     dispatch({ type: SET_ABOUTME, text: e.target.value });
   };
 

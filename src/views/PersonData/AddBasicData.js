@@ -13,7 +13,7 @@ import { SET_BASICDATA } from "actions/actionTypes";
 const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: "" }, dispatch }) => {
   const [formData, setFormData] = useState(personData);
 
-  const { photo, name, surname, job } = formData;
+  const { photo, name, surname, position } = formData;
 
   const handleInputChange = e => {
     if (e.target.name === "photo") {
@@ -42,6 +42,7 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
         type="file"
         name="photo"
         accept="image/png, image/jpeg"
+        // value={photo}
         onChange={handleInputChange}
         onBlur={handleBlurEvent}
       />
@@ -50,6 +51,7 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
         label="Imię*"
         name="name"
         placeholder="Np: John"
+        value={name}
         onChange={handleInputChange}
         onBlur={handleBlurEvent}
       />
@@ -58,6 +60,7 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
         label="Nazwisko*"
         name="surname"
         placeholder="Np: Doe"
+        value={surname}
         onChange={handleInputChange}
         onBlur={handleBlurEvent}
       />
@@ -66,6 +69,7 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
         label="Pozycja na którą aplikujesz*"
         name="position"
         placeholder="Np: FrontEnd developer"
+        value={position}
         onChange={handleInputChange}
         onBlur={handleBlurEvent}
       />

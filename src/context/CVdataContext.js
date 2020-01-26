@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 import { cvdataReducer } from "reducers/cvdataReducer"; // <--------
 
 export const CVdataContext = createContext();
@@ -67,7 +67,14 @@ const initialState = {
 };
 
 const CVdataContextProvider = props => {
-  const [cvdata, dispatch] = useReducer(cvdataReducer, initialState);
+  const [cvdata, dispatch] = useReducer(cvdataReducer, initialState, () => {
+    const localData = localStorage.getItem("cvdata");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cvdata", JSON.stringify(cvdata));
+  }, [cvdata]);
 
   return <CVdataContext.Provider value={{ cvdata, dispatch }}>{props.children}</CVdataContext.Provider>;
 };
