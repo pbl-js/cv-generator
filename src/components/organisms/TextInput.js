@@ -78,7 +78,7 @@ const TextInput = ({ label, name, placeholder, value, onChange, onBlur, error })
           name={name}
           type="text"
           placeholder={placeholder}
-          value={value}
+          value={value} //|| ""
           onChange={e => onChange(e)}
           onBlur={onBlur}
           error={error}

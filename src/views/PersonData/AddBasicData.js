@@ -8,14 +8,10 @@ import AddInfoTemplate from "templates/AddInfoTemplate.js";
 
 import { Person } from "styled-icons/octicons/Person";
 
-const AddBasicData = ({ context }) => {
-  console.log(context);
-  const [formData, setFormData] = useState({
-    photo: "",
-    name: "",
-    surname: "",
-    job: ""
-  });
+import { SET_BASICDATA } from "actions/actionTypes";
+
+const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: "" }, dispatch }) => {
+  const [formData, setFormData] = useState(personData);
 
   const { photo, name, surname, job } = formData;
 
@@ -32,19 +28,14 @@ const AddBasicData = ({ context }) => {
 
   const handleBlurEvent = e => {
     console.log("Work");
-  };
-
-  const saveData = () => {
-    console.log(name);
-    // addMainInfo({ photo, name, surname, job });
+    dispatch({ type: SET_BASICDATA, name: [e.target.name], value: formData[e.target.name] });
   };
 
   return (
     <AddInfoTemplate title="Dane podstawowe" icon={<Person />}>
       <InfoBox color="orange">
-        Dodaj zdjęcie aby rekruter łatwiej cię zapamiętał oraz skojarzył twoją
-        twarz podczas rozmowy rekrutacyjnej. Nie musisz podawać daty urodzenia
-        oraz dokładnego adresu.
+        Dodaj zdjęcie aby rekruter łatwiej cię zapamiętał oraz skojarzył twoją twarz podczas rozmowy rekrutacyjnej. Nie
+        musisz podawać daty urodzenia oraz dokładnego adresu.
       </InfoBox>
 
       <PhotoUploader
@@ -52,8 +43,8 @@ const AddBasicData = ({ context }) => {
         name="photo"
         accept="image/png, image/jpeg"
         onChange={handleInputChange}
+        onBlur={handleBlurEvent}
       />
-      <img src={photo} alt="omg" />
 
       <TextInput
         label="Imię*"
@@ -63,13 +54,21 @@ const AddBasicData = ({ context }) => {
         onBlur={handleBlurEvent}
       />
 
-      <TextInput label="Nazwisko*" placeholder="Np: Doe" />
+      <TextInput
+        label="Nazwisko*"
+        name="surname"
+        placeholder="Np: Doe"
+        onChange={handleInputChange}
+        onBlur={handleBlurEvent}
+      />
 
       <TextInput
         label="Pozycja na którą aplikujesz*"
+        name="position"
         placeholder="Np: FrontEnd developer"
+        onChange={handleInputChange}
+        onBlur={handleBlurEvent}
       />
-      <button onClick={saveData}>Wyślij</button>
     </AddInfoTemplate>
   );
 };

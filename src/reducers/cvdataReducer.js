@@ -9,7 +9,8 @@ import {
   EDIT_EXPERIENCE,
   DELETE_EXPERIENCE,
   SET_ABOUTME,
-  SET_CONTACT
+  SET_CONTACT,
+  SET_BASICDATA
 } from "actions/actionTypes";
 
 export const cvdataReducer = (state, action) => {
@@ -19,7 +20,15 @@ export const cvdataReducer = (state, action) => {
         ...state,
         contact: {
           ...state.contact,
-          [action.name]: [action.value]
+          [action.name]: action.value
+        }
+      };
+    case SET_BASICDATA:
+      return {
+        ...state,
+        personData: {
+          ...state.personData,
+          [action.name]: action.value
         }
       };
     case ADD_SCHOOL:

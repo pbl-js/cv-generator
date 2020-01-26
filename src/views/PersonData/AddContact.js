@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import AddInfoTemplate from "templates/AddInfoTemplate.js";
@@ -7,16 +7,16 @@ import InfoBox from "components/atoms/InfoBox";
 
 import { Phone } from "styled-icons/boxicons-solid/Phone";
 
-import { CVdataContext } from "context/CVdataContext";
-
 import { SET_CONTACT } from "actions/actionTypes";
 
-const AddContact = () => {
-  const {
-    cvdata: { contact },
-    dispatch
-  } = useContext(CVdataContext);
-
+const AddContact = ({
+  contact = {
+    phone: "",
+    email: "",
+    website: ""
+  },
+  dispatch
+}) => {
   const [contactValue, setContactValue] = useState(contact);
 
   const { phone, email, website } = contactValue;
@@ -48,7 +48,7 @@ const AddContact = () => {
         label="Telefon*"
         name="phone"
         placeholder="Np: 439 327 237"
-        value={phone || ""}
+        value={phone}
         onChange={e => handleChange(e)}
         onBlur={e => handleBlur(e)}
       />
@@ -57,7 +57,7 @@ const AddContact = () => {
         label="Email*"
         name="email"
         placeholder="Np: johndoe@darmowecv.pl"
-        value={email || ""}
+        value={email}
         onChange={e => handleChange(e)}
         onBlur={e => handleBlur(e)}
       />
@@ -66,7 +66,7 @@ const AddContact = () => {
         label="Website*"
         name="website"
         placeholder="Np: www.programowando.pl"
-        value={website || ""}
+        value={website}
         onChange={e => handleChange(e)}
         onBlur={e => handleBlur(e)}
       />

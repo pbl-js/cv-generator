@@ -19,7 +19,7 @@ import CVdataContextProvider from "context/CVdataContext";
 
 function App() {
   return (
-    <div>
+    <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Router>
@@ -39,7 +39,7 @@ function App() {
           </MainTemplate>
         </Router>
       </ThemeProvider>
-    </div>
+    </>
   );
 }
 

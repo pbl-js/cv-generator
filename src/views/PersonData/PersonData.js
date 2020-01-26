@@ -7,12 +7,13 @@ import { CVdataContext } from "context/CVdataContext";
 
 const PersonData = props => {
   const {
-    cvdata: { personData, contact }
+    cvdata: { personData, contact },
+    dispatch
   } = useContext(CVdataContext);
   return (
     <>
-      <AddBasicData personData={personData} />
-      <AddContact contacts={contact} />
+      <AddBasicData personData={personData} dispatch={dispatch} />
+      <AddContact contact={contact} dispatch={dispatch} />
     </>
   );
 };
