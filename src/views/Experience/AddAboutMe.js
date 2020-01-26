@@ -19,7 +19,6 @@ const AddAboutMe = ({ aboutMe: { text }, dispatch }) => {
         Podsumuj swoje osiągnięcia i kluczowe umiejętności. Opisz motywację do pracy. Przekonaj rekrutera, że masz
         konkretny plan na siebie i wiesz czego szukasz.
       </InfoBox>
-      <button onClick={() => console.log(text)}>fsd</button>
 
       <TextInput
         label="Tu wpisz do czego dążysz w pracy*"
