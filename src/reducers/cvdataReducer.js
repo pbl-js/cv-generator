@@ -10,7 +10,8 @@ import {
   DELETE_EXPERIENCE,
   SET_ABOUTME,
   SET_CONTACT,
-  SET_BASICDATA
+  SET_BASICDATA,
+  SET_TEMPLATE
 } from "actions/actionTypes";
 
 export const cvdataReducer = (state, action) => {
@@ -116,6 +117,11 @@ export const cvdataReducer = (state, action) => {
           ...state.aboutMe,
           text: action.text
         }
+      };
+    case SET_TEMPLATE:
+      return {
+        ...state,
+        template: action.data
       };
     default:
       return state;

@@ -10,3 +10,4 @@ export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE";
 export const SET_ABOUTME = "SET_ABOUTME";
 export const SET_CONTACT = "SET_CONTACT";
 export const SET_BASICDATA = "SET_BASICDATA";
+export const SET_TEMPLATE = "SET_TEMPLATE";
