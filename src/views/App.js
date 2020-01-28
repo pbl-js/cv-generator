@@ -26,15 +26,15 @@ function App() {
           <MainTemplate>
             <Switch>
               <Route exact path={routes.home} component={LandingPage} />
-              <CreatorTemplate>
-                <CVdataContextProvider>
+              <CVdataContextProvider>
+                <CreatorTemplate>
                   <Route path={routes.personData} component={PersonData} />
                   <Route path={routes.education} component={Education} />
                   <Route path={routes.experience} component={Experience} />
                   <Route path={routes.template} component={Template} />
                   <Route path={routes.generateCv} component={Download} />
-                </CVdataContextProvider>
-              </CreatorTemplate>
+                </CreatorTemplate>
+              </CVdataContextProvider>
             </Switch>
           </MainTemplate>
         </Router>

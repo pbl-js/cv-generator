@@ -6,6 +6,7 @@ import styled from "@react-pdf/styled-components";
 import phone from "assets/icons/phone.png";
 import email from "assets/icons/email.png";
 import home from "assets/icons/home.png";
+import blankPerson from "assets/images/blankPerson.jpg";
 
 Font.register({
   family: "Roboto",
@@ -318,7 +319,7 @@ const MyDocument = ({ data }) => {
       <Page>
         <Container>
           <Aside>
-            <Foto src={personData.photo} />
+            {personData.photo ? <Foto src={personData.photo} /> : <Foto src={blankPerson} />}
 
             {ContactsComponent(contact)}
 

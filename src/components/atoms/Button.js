@@ -21,17 +21,14 @@ const Button = styled.button`
       return "99px";
     }
   }};
-  background-color: ${({ theme, secondary }) =>
-    secondary ? "transparent" : theme.color.orange};
-  color: ${({ theme, secondary }) =>
-    secondary ? theme.color.orange : "white"};
-  text-decoration: none;
+  background-color: ${({ theme, secondary }) => (secondary ? "transparent" : theme.color.orange)};
+  color: ${({ theme, secondary }) => (secondary ? theme.color.orange : "white")};
+  text-decoration: none !important;
   cursor: pointer;
 
   :hover {
     color: white;
-    background-color: ${({ theme, secondary }) =>
-      secondary ? theme.color.orange : theme.color.orangeHover};
+    background-color: ${({ theme, secondary }) => (secondary ? theme.color.orange : theme.color.orangeHover)};
   }
 
   @media ${device.tablet} {

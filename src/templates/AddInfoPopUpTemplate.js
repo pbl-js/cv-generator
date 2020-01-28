@@ -43,13 +43,7 @@ const ButtonWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-const AddInfoPopUpTemplate = ({
-  children,
-  title,
-  icon,
-  handlePopupShow,
-  onSubmit
-}) => {
+const AddInfoPopUpTemplate = ({ children, title, icon, handlePopupShow, onSubmit }) => {
   return (
     <>
       <StyledBox as="form" onSubmit={onSubmit}>
@@ -66,7 +60,7 @@ const AddInfoPopUpTemplate = ({
             Anuluj
           </Button>
 
-          <Button type="submit">Zapisz</Button>
+          {onSubmit ? <Button type="submit">Zapisz</Button> : null}
         </ButtonWrapper>
       </StyledBox>
       <DarkBackground onClick={handlePopupShow} />
