@@ -1,6 +1,6 @@
 import React from "react";
 
-import AddSchoolPopUp from "views/education/AddSchoollPopUp";
+import AddSchoolPopUp from "views/Education/AddSchoollPopUp";
 import withPopup from "hoc/withPopup";
 
 import Button from "components/atoms/Button";

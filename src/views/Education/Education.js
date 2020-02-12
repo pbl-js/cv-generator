@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import AddSchool from "views/education/AddSchool";
-import AddSkills from "views/education/AddSkills";
+import AddSchool from "views/Education/AddSchool";
+import AddSkills from "views/Education/AddSkills";
 import { CVdataContext } from "context/CVdataContext";
 
 const Education = () => {

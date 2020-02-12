@@ -9,9 +9,9 @@ import MainTemplate from "templates/MainTemplate";
 import CreatorTemplate from "templates/CreatorTemplate";
 import LandingPage from "views/LandingPage";
 
-import PersonData from "views/personData/PersonData";
-import Education from "views/education/Education";
-import Experience from "views/experience/Experience";
+import PersonData from "views/PersonData/PersonData";
+import Education from "views/Education/Education";
+import Experience from "views/Experience/Experience";
 import Template from "views/Template";
 import Download from "views/Download";
 

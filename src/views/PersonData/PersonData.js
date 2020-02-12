@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import AddBasicData from "views/personData/AddBasicData";
-import AddContact from "views/personData/AddContact";
+import AddBasicData from "views/PersonData/AddBasicData";
+import AddContact from "views/PersonData/AddContact";
 
 import { CVdataContext } from "context/CVdataContext";
 

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import AddExperience from "views/experience/AddExperience";
-import AddAboutMe from "views/experience/AddAboutMe";
+import AddExperience from "views/Experience/AddExperience";
+import AddAboutMe from "views/Experience/AddAboutMe";
 
 import { CVdataContext } from "context/CVdataContext";
 
