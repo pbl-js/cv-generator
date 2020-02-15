@@ -10,177 +10,290 @@ import Box from "components/atoms/Box";
 import BigHeader from "components/atoms/BigHeader";
 import Header from "components/atoms/Header";
 import Paragraph from "components/atoms/Paragraph";
-import PurpleBackground from "components/molecules/PurpleBackground";
 
 import devices from "assets/images/devices.png";
-import laptop from "assets/images/laptop.png";
+import phone from "assets/images/phone.png";
 import template from "assets/images/template.jpg";
 
-const MainWrapper = styled.div`
+import { Lock } from "styled-icons/boxicons-regular/Lock";
+import { AttachMoney } from "styled-icons/material/AttachMoney";
+import { Document } from "styled-icons/typicons/Document";
+import { ShippingFast } from "styled-icons/fa-solid/ShippingFast";
+
+const ColorWrapper = styled.section`
+  background: linear-gradient(90deg, #483886 0%, #5b4ab6 100%);
+  padding-top: 30px;
+`;
+
+const ColorWrapperOrange = styled.section`
+  margin-bottom: -40px;
+  background-color: ${({ theme }) => theme.color.lightOrange};
+`;
+
+const InnerWrapper = styled.div`
+  width: 100%;
+  max-width: 750px;
+  padding: 0 20px;
+  margin: 40px auto 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 `;
 
-const MainPurpleWrapper = styled(MainWrapper)`
+const StyledDevices = styled.img`
+  width: 80%;
+  margin: 0 auto;
   position: relative;
-  overflow: hidden;
-`;
+  transform: translateY(30px);
 
-const PurpleHeaderWrapper = styled(MainPurpleWrapper)``;
-
-const ContentWrapper = styled(MainWrapper)`
-  padding: 40px 20px;
-  max-width: 850px;
-`;
-
-const WhiteMainWrapper = styled(MainWrapper)`
-  background-color: white;
-`;
-
-const CvWrapper = styled.div`
-  display: grid;
-  margin-top: 20px;
+  @media ${device.mobileL} {
+    transform: translateY(40px);
+  }
 
   @media ${device.tablet} {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    margin-top: 50px;
+    transform: translateY(60px);
   }
 `;
 
-const PurpleLastWraper = styled(MainPurpleWrapper)`
-  padding: 40px;
-  background-color: #5b4ab7;
+const StyledParagraph = styled(Paragraph)`
+  margin: 30px auto;
+  max-width: 660px;
+`;
+
+const ColorBox = styled(Box)`
+  box-shadow: none;
+  background-color: ${({ theme }) => theme.color.orange};
+`;
+
+const Circle = styled.div`
+  color: ${({ theme }) => theme.color.orange};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  background-color: white;
+  border-radius: 1000px;
+  line-height: 40px;
+  width: 40px;
+  margin: 40px 0;
+  text-align: center;
+`;
+
+const StyledPhoneImg = styled.img`
+  margin-top: 30px;
+  max-width: 80%;
 `;
 
 const StyledBox = styled(Box)`
-  padding: 30px;
+  margin: 40px 0;
+  padding: 40px;
+
+  @media ${device.tablet} {
+    padding: 40px;
+  }
 `;
 
-const StyledParagraph = styled(Paragraph)`
-  line-height: 150%;
-  margin-top: 15px;
+const OrangeBigHeader = styled(BigHeader)`
+  margin-top: 40px;
+  color: ${({ theme }) => theme.color.orange};
 `;
 
-const Devices = styled.img`
-  max-width: 300px;
+const OrangeListItem = styled.div`
+  display: flex;
   width: 100%;
-  margin: 40px auto 20px auto;
+  margin-bottom: 40px;
 `;
 
-const MultiDevices = styled.img`
-  width: 100%;
-  max-width: 600px;
-  margin: 40px auto 20px auto;
+const OrangeHeader = styled(Header)`
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.color.orange};
+  text-align: left;
 `;
 
-const TemplateCV = styled.img`
-  border-radius: 10px;
-  border: 10px solid white;
-  width: 100%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+const OrangeParagraph = styled(Paragraph)`
+  text-align: left;
+  color: ${({ theme }) => theme.color.darkGray};
+`;
+
+const OrangeListIcon = styled.div`
+  min-width: 70px;
+  height: 70px;
+  margin-right: 20px;
+  background-color: ${({ theme }) => theme.color.orange};
+  border-radius: 50px;
+  display: flex;
+  flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    color: white;
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const LandingPage = () => {
   return (
-    <div>
-      <MainPurpleWrapper>
-        <PurpleHeaderWrapper as={"header"}>
-          <Devices src={laptop} />
+    <main>
+      <ColorWrapper>
+        <InnerWrapper>
+          <BigHeader
+            style={{ marginTop: "30px" }}
+            white="routerError"
+            big="routerError"
+          >
+            Za darmo i bez logowania
+          </BigHeader>
 
-          <BigHeader white="true">Darmowy kreator CV</BigHeader>
-
-          <StyledParagraph big="true" white="true">
-            Zyskaj pracę marzeń!
+          <StyledParagraph white="routerError">
+            Darmowy kreator CV to narzędzie umożliwiające w łatwy i przyjemny
+            sposób stworzyć twoje wymarzone CV.
           </StyledParagraph>
 
-          <Button wide="true" as={Link} to={routes.personData}>
-            Stwórz CV
+          <Button as={Link} to={routes.personData}>
+            Stwórz swoje CV
           </Button>
-        </PurpleHeaderWrapper>
-      </MainPurpleWrapper>
 
-      <MainWrapper>
-        <BigHeader style={{ marginTop: "40px" }}>Dlaczego warto?</BigHeader>
-        <ContentWrapper as="section">
-          <StyledBox as="article">
-            <Header>Nie pozwól się ograniczać</Header>
-            <StyledParagraph>
-              CV to pierwsza rzecz jaką widzi rekruter. Jeżeli twoje CV nie
-              będzie prezentować się estetycznie, już na starcie zniechęcisz do
-              siebie pracodawcę. Zadbaj o to aby twoje CV zachęcało do
-              zaproszenia cię na rozmowę rekrutacyjną. Cała reszta, zależy od
-              ciebie!
-            </StyledParagraph>
-          </StyledBox>
+          <StyledDevices src={devices} alt="devices" />
+        </InnerWrapper>
+      </ColorWrapper>
 
-          <StyledBox as="article">
-            <Header>Za darmo i bez logowania</Header>
-            <StyledParagraph>
-              Znasz to uczucie gdy spędziłeś godzinę na tworzeniu swojego
-              wymarzonego CV i nagle okazuje się, że pobranie pliku PDF wymaga
-              podania numeru karty kredytowej? Twój czas jest dla mnie równie
-              ważny jak mój własny. Dlatego na tej stronie stworzysz CV zupełnie
-              za darmo. Nie musisz nawet zakładać konta.
-            </StyledParagraph>
-          </StyledBox>
+      <InnerWrapper>
+        <BigHeader style={{ marginTop: "50px" }}>
+          Dlaczego warto zadbać CV?
+        </BigHeader>
 
-          <StyledBox as="article">
-            <Header>Twoje dane, twoja sprawa</Header>
-            <StyledParagraph>
-              Często darmowe serwisy są, darmowe tylko z pozoru. Po prostu
-              operują inną walutą. Zamiast pieniędzy, zadowalają się twoimi
-              danymi. Używając mojego kreatora, masz pewność, że twoje dane
-              nigdy nie opuszczą twojej przeglądarki. Dzieje sie tak dlatego, że
-              aplikacja nie wysyła żadnych danych do jakiegokolwiek serwera.{" "}
-            </StyledParagraph>
-          </StyledBox>
-        </ContentWrapper>
-      </MainWrapper>
+        <StyledParagraph>
+          CV to pierwsza rzecz jaką widzi rekruter. Jeżeli twoje CV nie będzie
+          prezentować się estetycznie, już na starcie zniechęcisz do siebie
+          pracodawcę.
+        </StyledParagraph>
+      </InnerWrapper>
 
-      <WhiteMainWrapper>
-        <ContentWrapper as="section">
-          <BigHeader>
-            Dzięki przeglądarce dostępny na każdym urządzeniu
+      <InnerWrapper>
+        <BigHeader>Jak to działa?</BigHeader>
+
+        <ColorBox>
+          <Circle>1</Circle>
+
+          <BigHeader white="routerError" big="routerError">
+            Wybierz szablon
           </BigHeader>
-          <StyledParagraph big="true">
-            Twórz atrakcyjnie wizualnie CV gdzie tylko chcesz. W kawiarni, na
-            uczelni lub w zaciszu domowym
+
+          <StyledParagraph white="routerError">
+            Szeroka gama dostępnych szablonów sprawi, ze kazdy znajdzie coś dla
+            siebie.
           </StyledParagraph>
 
-          <MultiDevices src={devices} />
-        </ContentWrapper>
-      </WhiteMainWrapper>
+          <StyledPhoneImg src={phone} alt="phone" />
+        </ColorBox>
 
-      <PurpleHeaderWrapper>
-        <ContentWrapper as="section">
-          <BigHeader white="true">
-            Wybierz jeden z wielu darmowych szablonów
+        <ColorBox>
+          <Circle>1</Circle>
+
+          <BigHeader white="routerError" big="routerError">
+            Uzupełnij dane
           </BigHeader>
-          <CvWrapper>
-            <TemplateCV src={template} />
-            <TemplateCV src={template} />
-            <TemplateCV src={template} />
-            <TemplateCV src={template} />
-          </CvWrapper>
-        </ContentWrapper>
-        <PurpleBackground />
-      </PurpleHeaderWrapper>
 
-      <PurpleLastWraper as="section">
-        <BigHeader white="true">Darmowy i dostępny bez logowania</BigHeader>
+          <StyledParagraph white="routerError">
+            Bez obaw. Nigdy nie otrzymasz od nas zadnej wiadomości.
+          </StyledParagraph>
 
-        <StyledParagraph big="true" white="true">
-          Atrakcyjne CV to pierwszy krok do znalezienia wymarzonej pracy
-        </StyledParagraph>
-        <br />
+          <StyledPhoneImg src={phone} alt="phone" />
+        </ColorBox>
 
-        <Button wide="true" as={Link} to={routes.personData}>
-          Stwórz CV
-        </Button>
-      </PurpleLastWraper>
-    </div>
+        <ColorBox>
+          <Circle>1</Circle>
+
+          <BigHeader white="routerError" big="routerError">
+            Pobierz plik PDF
+          </BigHeader>
+
+          <StyledParagraph white="routerError">
+            Od teraz wszystko zalezy od ciebie! Powodzenia w nowej pracy.
+          </StyledParagraph>
+
+          <StyledPhoneImg src={phone} alt="phone" />
+        </ColorBox>
+      </InnerWrapper>
+
+      <ColorWrapperOrange>
+        <InnerWrapper>
+          <OrangeBigHeader>Mocne strony</OrangeBigHeader>
+          <StyledBox>
+            <OrangeListItem>
+              <OrangeListIcon>
+                <Lock />
+              </OrangeListIcon>
+
+              <div>
+                <OrangeHeader>Bezpieczeństwo danych</OrangeHeader>
+                <OrangeParagraph>
+                  Nigdy nie wyślemy zadnej wiadomości na podane przez ciebie
+                  dane kontaktowe.
+                </OrangeParagraph>
+              </div>
+            </OrangeListItem>
+
+            <OrangeListItem>
+              <OrangeListIcon>
+                <AttachMoney />
+              </OrangeListIcon>
+
+              <div>
+                <OrangeHeader>Całkowicie za darmo</OrangeHeader>
+                <OrangeParagraph>
+                  To nie jedna z tych "darmowych" stron, gdzie po godzinie
+                  tworzenia CV zostaniesz poproszony o nr. karty kredytowej
+                </OrangeParagraph>
+              </div>
+            </OrangeListItem>
+
+            <OrangeListItem>
+              <OrangeListIcon>
+                <Document />
+              </OrangeListIcon>
+
+              <div>
+                <OrangeHeader>Dokument PDF</OrangeHeader>
+                <OrangeParagraph>
+                  Niektóre z generatorów CV zamiast pliku PDF tworzą zdjęcie
+                  zapisane do formatu PDF. Taki plik nie ma wielu swoich
+                  właściwości.
+                </OrangeParagraph>
+              </div>
+            </OrangeListItem>
+
+            <OrangeListItem style={{ marginBottom: "0" }}>
+              <OrangeListIcon>
+                <ShippingFast />
+              </OrangeListIcon>
+
+              <div>
+                <OrangeHeader>Szybko i prosto</OrangeHeader>
+                <OrangeParagraph>
+                  Z szacunku do twojego czasu do wygenerowania CV nie
+                  potrzebujesz tworzyć konta aby pobrać plik.
+                </OrangeParagraph>
+              </div>
+            </OrangeListItem>
+          </StyledBox>
+        </InnerWrapper>
+      </ColorWrapperOrange>
+
+      <InnerWrapper>
+        <StyledBox>
+          <BigHeader>Zdobądź wymarzoną pracę</BigHeader>
+
+          <StyledParagraph>
+            Stwórz razem z nami swoje CV i wykonaj pierwszy krok do podjęcia
+            wymarzonej pracy!
+          </StyledParagraph>
+
+          <Button as={Link} to={routes.personData}>
+            Zaczynamy
+          </Button>
+        </StyledBox>
+      </InnerWrapper>
+    </main>
   );
 };
 

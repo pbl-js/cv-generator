@@ -6,7 +6,7 @@ export const theme = {
   color: {
     orange: "#FEA363",
     orangeHover: "#FF974F",
-    lightOrange: "#FFE3D0",
+    lightOrange: "#FFE7D7",
     darkOrange: "#E3782D",
     lightBlue: "#D9E8FF",
     darkBlue: "#508DED",
@@ -35,6 +35,6 @@ export const theme = {
     s: "1.8rem", // button Paragraph InfoBox
     m: "2rem", // Header
     l: "2.4rem", // BigParagraph
-    xl: "4rem" //BigHeader
+    xl: "3.0rem" //BigHeader
   }
 };

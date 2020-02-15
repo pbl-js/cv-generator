@@ -4,7 +4,7 @@ import styled from "styled-components";
 const BigHeader = styled.h1`
   text-align: center;
   font-size: ${({ theme }) => theme.fontSize.xl};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   color: ${({ white, theme }) => (white ? "white" : theme.color.veryDarkGray)};
 `;
 

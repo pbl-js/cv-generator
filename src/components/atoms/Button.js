@@ -7,34 +7,38 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   box-sizing: content-box;
-  padding: 10px 20px;
+  padding: 15px 30px;
+  margin: 0 auto;
   min-width: 130px;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   border: ${({ secondary }) => (secondary ? "2px solid" : "none")};
   border-radius: ${({ left, right }) => {
     if (left) {
-      return "99px 0 0 99px";
+      return "10px 0 0 10px";
     } else if (right) {
-      return "0 99px 99px 0";
+      return "0 10px 10px 0";
     } else {
-      return "99px";
+      return "10px";
     }
   }};
-  background-color: ${({ theme, secondary }) => (secondary ? "transparent" : theme.color.orange)};
-  color: ${({ theme, secondary }) => (secondary ? theme.color.orange : "white")};
+  background-color: ${({ theme, secondary }) =>
+    secondary ? "transparent" : theme.color.orange};
+  color: ${({ theme, secondary }) =>
+    secondary ? theme.color.orange : "white"};
   text-decoration: none !important;
   cursor: pointer;
 
   :hover {
     color: white;
-    background-color: ${({ theme, secondary }) => (secondary ? theme.color.orange : theme.color.orangeHover)};
+    background-color: ${({ theme, secondary }) =>
+      secondary ? theme.color.orange : theme.color.orangeHover};
   }
 
-  @media ${device.tablet} {
-    padding: 15px 40px;
+  /* @media ${device.tablet} {
+    padding: 20px 40px;
     min-width: 150px;
-  }
+  } */
 `;
 
 export default Button;
