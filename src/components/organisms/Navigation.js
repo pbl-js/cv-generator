@@ -15,7 +15,7 @@ import { Customize } from "styled-icons/boxicons-solid/Customize";
 import { Download } from "styled-icons/remix-fill/Download";
 
 const StyledWrapper = styled.div`
-  margin-top: 20px;
+  margin: 80px auto 0 auto;
 `;
 
 const InnerWrapper = styled.div`
@@ -25,7 +25,7 @@ const InnerWrapper = styled.div`
 `;
 
 const StyledHeader = styled(Header)`
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
 `;
 

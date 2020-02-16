@@ -41,6 +41,12 @@ const StyledWrapper = styled.div`
   padding-bottom: 50px;
 `;
 
+const ChildrenWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const WhiteButton = styled(Button)`
   margin: 0;
   padding: 7px 15px;
@@ -66,8 +72,7 @@ const MainTemplate = ({ children }) => {
           <WhiteButton>Zaloguj</WhiteButton>
         </InnerWrapper>
       </Navbar>
-
-      {children}
+      <ChildrenWrapper>{children}</ChildrenWrapper>
       <Footer />
     </StyledWrapper>
   );
