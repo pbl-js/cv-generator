@@ -13,6 +13,7 @@ import PreviewIcon from "components/atoms/PreviewIcon";
 const StyledWrapper = styled.div`
   max-width: 850px;
   margin: 0 20px;
+  padding-bottom: 50px;
 `;
 
 const ColorBackground = styled.div`

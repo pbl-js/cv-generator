@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 import { NavLink } from "react-router-dom";
 import { creatorRoutes } from "routes/routes";
 
@@ -16,6 +17,10 @@ import { Download } from "styled-icons/remix-fill/Download";
 
 const StyledWrapper = styled.div`
   margin: 80px auto 0 auto;
+
+  @media ${device.tablet} {
+    margin-top: 100px;
+  }
 `;
 
 const InnerWrapper = styled.div`

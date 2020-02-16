@@ -27,6 +27,7 @@ const ColorWrapper = styled.section`
 
 const ColorWrapperOrange = styled.section`
   margin-bottom: -40px;
+  width: 100vw;
   background-color: ${({ theme }) => theme.color.lightOrange};
 `;
 
