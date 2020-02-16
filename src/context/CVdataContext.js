@@ -12,9 +12,9 @@ const initialState = {
     position: ""
   },
   contact: {
-    phone: "797792613",
-    email: "jogobello4@gmail.com",
-    website: "www.pablo.pl"
+    phone: "999555222",
+    email: "jondoe@gmail.com",
+    website: "www.jondoe.pl"
   },
   schools: {
     customTitle: "",
@@ -24,7 +24,7 @@ const initialState = {
       {
         id: 1,
         educationLevel: "Inżynier",
-        schoolName: "Wyższa szkoła ekonomii i innowacji w lublinie",
+        schoolName: "Wyższa szkoła ekonomii i innowacji",
         specialization: "Programowanie i technologie web",
         start: 2014,
         end: 2019,
@@ -38,7 +38,7 @@ const initialState = {
     break: false,
     items: [
       { id: 1, title: "JavaScipt" },
-      { id: 2, title: "PHP" }
+      { id: 2, title: "CSS" }
     ]
   },
   experience: {
@@ -48,13 +48,13 @@ const initialState = {
     items: [
       {
         id: 1,
-        position: "Własna działalność gospodarcza",
-        company: "PABLO Company",
-        city: "Lublin",
+        position: "Test",
+        company: "TEST Company",
+        city: "TestCity",
         start: 2013,
         end: 2019,
         description:
-          "Prowadzenie sklepu internetowego. Konfiguracja kampanii reklamowych na platformach: Youtube, Facebook, Google. Przygotowywanie materiałów promocyjnych, w tym: animacje reklamowe (AfterEffect, Blender, Photoshop), posty graficzne na potrzeby portali społecznościowych, grafika reklamowa."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
       }
     ]
   },
@@ -62,7 +62,7 @@ const initialState = {
     customTitle: "",
     hide: false,
     break: false,
-    text: "gsdfgsdf"
+    text: ""
   }
 };
 
@@ -76,7 +76,11 @@ const CVdataContextProvider = props => {
     localStorage.setItem("cvdata", JSON.stringify(cvdata));
   }, [cvdata]);
 
-  return <CVdataContext.Provider value={{ cvdata, dispatch }}>{props.children}</CVdataContext.Provider>;
+  return (
+    <CVdataContext.Provider value={{ cvdata, dispatch }}>
+      {props.children}
+    </CVdataContext.Provider>
+  );
 };
 
 export default CVdataContextProvider;
