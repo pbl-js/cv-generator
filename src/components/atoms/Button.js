@@ -8,11 +8,12 @@ const Button = styled.button`
   align-items: center;
   box-sizing: content-box;
   padding: 15px 30px;
-  margin: 0 auto;
   min-width: 130px;
+  margin: 0 auto;
   font-size: ${({ theme }) => theme.fontSize.s};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  border: ${({ secondary }) => (secondary ? "2px solid" : "none")};
+  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  border: ${({ secondary, theme }) =>
+    secondary ? "2px solid" : "2px solid " + theme.color.orange};
   border-radius: ${({ left, right }) => {
     if (left) {
       return "10px 0 0 10px";
@@ -31,14 +32,10 @@ const Button = styled.button`
 
   :hover {
     color: white;
+    border: ${({ theme }) => "2px solid" + theme.color.orange};
     background-color: ${({ theme, secondary }) =>
       secondary ? theme.color.orange : theme.color.orangeHover};
   }
-
-  /* @media ${device.tablet} {
-    padding: 20px 40px;
-    min-width: 150px;
-  } */
 `;
 
 export default Button;

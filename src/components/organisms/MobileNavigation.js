@@ -27,6 +27,16 @@ const StyledWrapper = styled.div`
   }
 `;
 
+const StyledButton = styled(Button)`
+  padding: 7px 15px;
+  min-width: 100px;
+
+  @media ${device.tablet} {
+    padding: 15px 30px;
+    min-width: 130px;
+  }
+`;
+
 const MobileNavigation = ({ progressData, handlePageChange, history }) => {
   const { progress } = progressData;
 
@@ -45,16 +55,16 @@ const MobileNavigation = ({ progressData, handlePageChange, history }) => {
   return (
     <div>
       <StyledWrapper>
-        <Button
+        <StyledButton
           left="true"
           secondary="true"
           onClick={() => nextOrPreviousPage("-")}
         >
           Wstecz
-        </Button>
-        <Button right="true" onClick={() => nextOrPreviousPage("+")}>
+        </StyledButton>
+        <StyledButton right="true" onClick={() => nextOrPreviousPage("+")}>
           Dalej
-        </Button>
+        </StyledButton>
       </StyledWrapper>
     </div>
   );

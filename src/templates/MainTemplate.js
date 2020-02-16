@@ -22,6 +22,7 @@ const InnerWrapper = styled.div`
   margin: 0 auto;
   padding: 15px 0;
   display: flex;
+  align-items: center;
 `;
 
 const Logo = styled(BigHeader)`
@@ -40,6 +41,20 @@ const StyledWrapper = styled.div`
   padding-bottom: 50px;
 `;
 
+const WhiteButton = styled(Button)`
+  margin: 0;
+  padding: 7px 15px;
+  min-width: 0;
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  background-color: transparent;
+  border: 2px solid white;
+
+  :hover {
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+`;
+
 const MainTemplate = ({ children }) => {
   return (
     <StyledWrapper>
@@ -48,7 +63,7 @@ const MainTemplate = ({ children }) => {
           <Logo white="true" as={Link} to={routes.home}>
             DARMOWE-CV.PL
           </Logo>
-          Lorem ipsum
+          <WhiteButton>Zaloguj</WhiteButton>
         </InnerWrapper>
       </Navbar>
 
