@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { device } from "theme/BreakPoints";
 
 import AddInfoTemplate from "templates/AddInfoTemplate.js";
 import basicTemplate from "assets/images/template.jpg";
@@ -13,8 +14,12 @@ import { SET_TEMPLATE } from "actions/actionTypes";
 const InnerWrapper = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const StyledHeader = styled(Header)`
@@ -29,7 +34,8 @@ const TemplateItem = styled.div`
     border-radius: 10px;
     margin-top: 15px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    border: ${({ active, theme }) => (active ? "5px solid" + theme.color.orange : "transparent")};
+    border: ${({ active, theme }) =>
+      active ? "5px solid" + theme.color.orange : "transparent"};
     cursor: pointer;
   }
 `;
@@ -57,8 +63,14 @@ const Template = () => {
     <AddInfoTemplate title="Wygląd dokumentu" icon={<DocumentText />}>
       <InnerWrapper>
         {templates.map(item => (
-          <TemplateItem key={item.id} active={item.name === template} onClick={() => handleClick(item.name)}>
-            <StyledHeader active={item.name === template}>{item.name}</StyledHeader>
+          <TemplateItem
+            key={item.id}
+            active={item.name === template}
+            onClick={() => handleClick(item.name)}
+          >
+            <StyledHeader active={item.name === template}>
+              {item.name}
+            </StyledHeader>
             <img src={item.image} alt={item.name} />
           </TemplateItem>
         ))}
