@@ -28,6 +28,11 @@ const AddSkills = ({ skills, dispatch }) => {
     setSkillItem({
       title: e.target.value
     });
+
+    if (e.key === "enter") {
+      console.log("siema");
+      addSkill();
+    }
   };
 
   const addSkill = () => {
@@ -44,7 +49,8 @@ const AddSkills = ({ skills, dispatch }) => {
   return (
     <AddInfoTemplate title="Umiejętności" icon={<Skills />}>
       <InfoBox color="orange">
-        Pokaż swoje mocne strony. Wpisz umiejętności, które pasują do oczekiwań pracodawcy opisanych w ogłoszeniu.
+        Pokaż swoje mocne strony. Wpisz umiejętności, które pasują do oczekiwań
+        pracodawcy opisanych w ogłoszeniu.
       </InfoBox>
 
       <SkillWrapper>
@@ -61,6 +67,7 @@ const AddSkills = ({ skills, dispatch }) => {
         placeholder="Np: Operowanie wózkiem widłowym"
         value={skillItem.title}
         onChange={handleInput}
+        keyDown={addSkill}
       />
 
       <Button onClick={addSkill}>Dodaj pozycję</Button>
