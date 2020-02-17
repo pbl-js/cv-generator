@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import TextInput from "components/organisms/TextInput";
-import AddInfoPopUpTemplate from "templates/AddInfoPopUpTemplate";
+import PopupTemplate from "templates/PopupTemplate";
 
 import { ADD_SCHOOL, EDIT_SCHOOL } from "actions/actionTypes";
 
@@ -22,7 +22,14 @@ const AddSchoolPopUp = ({
 }) => {
   const [school, setSchool] = useState(defaultData);
 
-  const { educationLevel, schoolName, specialization, start, end, current } = school;
+  const {
+    educationLevel,
+    schoolName,
+    specialization,
+    start,
+    end,
+    current
+  } = school;
 
   const onChange = e => {
     setSchool({
@@ -43,7 +50,12 @@ const AddSchoolPopUp = ({
 
   return (
     <>
-      <AddInfoPopUpTemplate title={title} icon={icon} handlePopupShow={handlePopupShow} onSubmit={onSubmit}>
+      <PopupTemplate
+        title={title}
+        icon={icon}
+        handlePopupShow={handlePopupShow}
+        onSubmit={onSubmit}
+      >
         <TextInput
           label="Poziom wykształcenia*"
           name="educationLevel"
@@ -68,10 +80,22 @@ const AddSchoolPopUp = ({
           onChange={onChange}
         />
 
-        <TextInput label="Rok rozpoczęcia*" name="start" placeholder="Np: 2012" value={start} onChange={onChange} />
+        <TextInput
+          label="Rok rozpoczęcia*"
+          name="start"
+          placeholder="Np: 2012"
+          value={start}
+          onChange={onChange}
+        />
 
-        <TextInput label="Rok zakończenia*" name="end" placeholder="Np: 2019" value={end} onChange={onChange} />
-      </AddInfoPopUpTemplate>
+        <TextInput
+          label="Rok zakończenia*"
+          name="end"
+          placeholder="Np: 2019"
+          value={end}
+          onChange={onChange}
+        />
+      </PopupTemplate>
     </>
   );
 };

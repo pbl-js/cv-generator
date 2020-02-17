@@ -28,7 +28,7 @@ const StyledWrapper = styled.div`
   display: grid;
   width: 100%;
   grid-gap: 20px;
-  justify-items: center;
+  /* justify-items: center; */
   overflow-y: auto;
 
   @media ${device.tablet} {
@@ -43,15 +43,24 @@ const ButtonWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-const AddInfoPopUpTemplate = ({ children, title, icon, handlePopupShow, onSubmit }) => {
+const PopupTemplate = ({
+  children,
+  title,
+  icon,
+  handlePopupShow,
+  onSubmit,
+  settings = false
+}) => {
   return (
     <>
       <StyledBox as="form" onSubmit={onSubmit}>
-        <BoxHeader>
-          {icon}
-          <Header>{title}</Header>
-          <Close onClick={handlePopupShow} />
-        </BoxHeader>
+        {!settings && (
+          <BoxHeader>
+            {icon}
+            <Header>{title}</Header>
+            <Close onClick={handlePopupShow} />
+          </BoxHeader>
+        )}
 
         <StyledWrapper>{children}</StyledWrapper>
 
@@ -69,9 +78,9 @@ const AddInfoPopUpTemplate = ({ children, title, icon, handlePopupShow, onSubmit
   );
 };
 
-AddInfoPopUpTemplate.propTypes = {
+PopupTemplate.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.element
 };
 
-export default AddInfoPopUpTemplate;
+export default PopupTemplate;

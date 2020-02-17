@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import PDFViewer from "components/pdfGenerator/PDFViewer";
-import AddInfoPopUpTemplate from "templates/AddInfoPopUpTemplate";
+import PopupTemplate from "templates/PopupTemplate";
 
 const ShowCvPopUp = ({ handlePopupShow }) => {
   return (
-    <AddInfoPopUpTemplate title="Podgląd CV" handlePopupShow={handlePopupShow}>
+    <PopupTemplate title="Podgląd CV" handlePopupShow={handlePopupShow}>
       <PDFViewer />
-    </AddInfoPopUpTemplate>
+    </PopupTemplate>
   );
 };
 

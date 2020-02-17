@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import TextInput from "components/organisms/TextInput";
-import AddInfoPopUpTemplate from "templates/AddInfoPopUpTemplate";
+import PopupTemplate from "templates/PopupTemplate";
 
 import { ADD_EXPERIENCE, EDIT_EXPERIENCE } from "actions/actionTypes";
 
@@ -36,14 +36,23 @@ const AddSchoolPopUp = ({
 
     defaultData.position === ""
       ? dispatch({ type: ADD_EXPERIENCE, experienceItem: experience })
-      : dispatch({ type: EDIT_EXPERIENCE, id: defaultData.id, experienceItem: experience });
+      : dispatch({
+          type: EDIT_EXPERIENCE,
+          id: defaultData.id,
+          experienceItem: experience
+        });
 
     handlePopupShow();
   };
 
   return (
     <>
-      <AddInfoPopUpTemplate title={title} icon={icon} handlePopupShow={handlePopupShow} onSubmit={onSubmit}>
+      <PopupTemplate
+        title={title}
+        icon={icon}
+        handlePopupShow={handlePopupShow}
+        onSubmit={onSubmit}
+      >
         <TextInput
           label="Stanowisko*"
           name="position"
@@ -60,11 +69,29 @@ const AddSchoolPopUp = ({
           onChange={onChange}
         />
 
-        <TextInput label="Lokalizacja" name="city" placeholder="Np: Warszawa" value={city} onChange={onChange} />
+        <TextInput
+          label="Lokalizacja"
+          name="city"
+          placeholder="Np: Warszawa"
+          value={city}
+          onChange={onChange}
+        />
 
-        <TextInput label="Rok rozpoczęcia*" name="start" placeholder="Np: 2012" value={start} onChange={onChange} />
+        <TextInput
+          label="Rok rozpoczęcia*"
+          name="start"
+          placeholder="Np: 2012"
+          value={start}
+          onChange={onChange}
+        />
 
-        <TextInput label="Rok zakończenia*" name="end" placeholder="Np: 2019" value={end} onChange={onChange} />
+        <TextInput
+          label="Rok zakończenia*"
+          name="end"
+          placeholder="Np: 2019"
+          value={end}
+          onChange={onChange}
+        />
 
         <TextInput
           label="Opis wykonywanych czynności"
@@ -73,7 +100,7 @@ const AddSchoolPopUp = ({
           value={description}
           onChange={onChange}
         />
-      </AddInfoPopUpTemplate>
+      </PopupTemplate>
     </>
   );
 };
