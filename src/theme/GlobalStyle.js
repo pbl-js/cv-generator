@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         font-size: 62.5%;
         /* Dzięki temu 1rem = 10px */
+        scroll-behavior: smooth;
     }
 
     body {

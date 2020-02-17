@@ -62,6 +62,11 @@ const CreatorTemplate = ({
     });
   };
 
+  // Scroll to top
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  }, [progressData.progress]);
+
   return (
     <StyledWrapper>
       <Navigation
