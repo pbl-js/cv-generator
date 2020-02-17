@@ -37,7 +37,12 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const MobileNavigation = ({ progressData, handlePageChange, history }) => {
+const MobileNavigation = ({
+  progressData,
+  handlePageChange,
+  history,
+  lastPage
+}) => {
   const { progress } = progressData;
 
   const nextOrPreviousPage = type => {
@@ -55,16 +60,20 @@ const MobileNavigation = ({ progressData, handlePageChange, history }) => {
   return (
     <div>
       <StyledWrapper>
-        <StyledButton
-          left="true"
-          secondary="true"
-          onClick={() => nextOrPreviousPage("-")}
-        >
-          Wstecz
-        </StyledButton>
-        <StyledButton right="true" onClick={() => nextOrPreviousPage("+")}>
-          Dalej
-        </StyledButton>
+        {progress !== 1 ? (
+          <StyledButton
+            left="true"
+            secondary="true"
+            onClick={() => nextOrPreviousPage("-")}
+          >
+            Wstecz
+          </StyledButton>
+        ) : null}
+        {progress !== 5 ? (
+          <StyledButton right="true" onClick={() => nextOrPreviousPage("+")}>
+            Dalej
+          </StyledButton>
+        ) : null}
       </StyledWrapper>
     </div>
   );

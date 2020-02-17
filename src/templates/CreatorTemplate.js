@@ -64,7 +64,7 @@ const CreatorTemplate = ({
 
   // Scroll to top
   useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+    window.scroll({ top: 0, left: 0 });
   }, [progressData.progress]);
 
   return (
@@ -78,6 +78,7 @@ const CreatorTemplate = ({
       <MobileNavigation
         progressData={progressData}
         handlePageChange={handlePageChange}
+        lastPage={creatorRoutes.length}
       />
 
       {progressData.progress < 5 && <PreviewIcon onClick={handlePopupShow} />}
