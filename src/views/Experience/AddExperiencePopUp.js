@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import useForm from "hooks/useForm";
+import validateExperience from "functions/validateExperience";
 
 import TextInput from "components/organisms/TextInput";
 import PopupTemplate from "templates/PopupTemplate";
@@ -20,30 +22,28 @@ const AddSchoolPopUp = ({
     description: ""
   }
 }) => {
-  const [experience, setExperience] = useState(defaultData);
+  const {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    values,
+    errors,
+    canSubmiting
+  } = useForm(defaultData, onSubmit, validateExperience);
 
-  const { position, company, city, start, end, description } = experience;
+  const { position, company, city, start, end, description } = values;
 
-  const onChange = e => {
-    setExperience({
-      ...experience,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const onSubmit = e => {
-    e.preventDefault();
-
+  function onSubmit(e) {
     defaultData.position === ""
-      ? dispatch({ type: ADD_EXPERIENCE, experienceItem: experience })
+      ? dispatch({ type: ADD_EXPERIENCE, experienceItem: values })
       : dispatch({
           type: EDIT_EXPERIENCE,
           id: defaultData.id,
-          experienceItem: experience
+          experienceItem: values
         });
 
     handlePopupShow();
-  };
+  }
 
   return (
     <>
@@ -51,14 +51,16 @@ const AddSchoolPopUp = ({
         title={title}
         icon={icon}
         handlePopupShow={handlePopupShow}
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
       >
         <TextInput
           label="Stanowisko*"
           name="position"
           placeholder="Np: Kierownik ds. dystrybucji"
           value={position}
-          onChange={onChange}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.position}
         />
 
         <TextInput
@@ -66,7 +68,9 @@ const AddSchoolPopUp = ({
           name="company"
           placeholder="Np: Best Software house"
           value={company}
-          onChange={onChange}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.company}
         />
 
         <TextInput
@@ -74,7 +78,9 @@ const AddSchoolPopUp = ({
           name="city"
           placeholder="Np: Warszawa"
           value={city}
-          onChange={onChange}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.city}
         />
 
         <TextInput
@@ -82,7 +88,9 @@ const AddSchoolPopUp = ({
           name="start"
           placeholder="Np: 2012"
           value={start}
-          onChange={onChange}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.start}
         />
 
         <TextInput
@@ -90,7 +98,9 @@ const AddSchoolPopUp = ({
           name="end"
           placeholder="Np: 2019"
           value={end}
-          onChange={onChange}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.end}
         />
 
         <TextInput
@@ -98,7 +108,9 @@ const AddSchoolPopUp = ({
           name="description"
           placeholder="Tutaj opisz czym zajmowałeś się w pracy"
           value={description}
-          onChange={onChange}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={errors.description}
         />
       </PopupTemplate>
     </>
