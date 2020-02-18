@@ -3,15 +3,12 @@ import { useState, useEffect } from "react";
 const useForm = (defaultData, callback, validate) => {
   const [values, setValues] = useState(defaultData);
   const [errors, setErrors] = useState({});
-  const [canSubmiting, setCanSubmiting] = useState(false);
+  const [isSubmiting, setIsSubmiting] = useState(false);
 
+  //UseEffect trigger submit function. Submit button in other part of application only change state for :"isSubmitting"
   useEffect(() => {
-    const noErrors = Object.keys(errors).length === 0;
-
-    if (noErrors) {
-      setCanSubmiting(true);
-    } else {
-      setCanSubmiting(false);
+    if (Object.keys(errors).length === 0 && isSubmiting) {
+      callback();
     }
   }, [errors]);
 
@@ -36,7 +33,7 @@ const useForm = (defaultData, callback, validate) => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
-    callback();
+    setIsSubmiting(true);
   };
 
   return {
@@ -44,8 +41,7 @@ const useForm = (defaultData, callback, validate) => {
     handleBlur,
     handleSubmit,
     values,
-    errors,
-    canSubmiting
+    errors
   };
 };
 
