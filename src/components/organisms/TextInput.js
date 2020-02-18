@@ -107,7 +107,7 @@ const TextInput = ({
 
         <Bar error={error} />
       </StyledWrapper>
-      <StyledError>{error}</StyledError>
+      <StyledError>{error ? error : null}</StyledError>
     </MainWrapper>
   );
 };
