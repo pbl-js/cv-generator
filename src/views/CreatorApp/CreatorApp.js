@@ -22,30 +22,23 @@ const CreatorApp = ({ isOpen, handlePopupShow }) => {
   let history = useHistory();
   let location = useLocation();
 
-  const [progressData, setProgressData] = useState({
-    progress: 1
-  });
-
-  // Pobieranie indexu tablicy z listą podstron kreatora
   const index = creatorRoutes.map(x => x.url).indexOf(location.pathname);
 
-  // Ustawienie zmiennej stanu "progress" na aktualną po odświeżeniu strony
-  useEffect(() => {
-    setProgressData({
-      progress: index + 1
-    });
-  }, []);
+  const [progressData, setProgressData] = useState(index + 1);
 
-  //Ten efekt ustawia adres url w oparciu o zmienną stanu "progress"
+  // Set url based on progress value
   useEffect(() => {
-    history.push(creatorRoutes[progressData.progress - 1].url);
-  }, [progressData]);
+    history.push(creatorRoutes[progressData - 1].url);
+  }, [progressData, history]);
 
   const handlePageChange = value => {
-    setProgressData({
-      progress: value
-    });
+    setProgressData(value);
   };
+
+  //ScrollTOp
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+  }, [progressData]);
 
   return (
     <CVdataContextProvider>
@@ -70,7 +63,7 @@ const CreatorApp = ({ isOpen, handlePopupShow }) => {
           lastPage={creatorRoutes.length}
         />
 
-        {progressData.progress < 5 && <PreviewIcon onClick={handlePopupShow} />}
+        {progressData < 5 && <PreviewIcon onClick={handlePopupShow} />}
         {isOpen && <ShowCvPopUp handlePopupShow={handlePopupShow} />}
       </CreatorTemplate>
     </CVdataContextProvider>

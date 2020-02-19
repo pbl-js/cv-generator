@@ -22,11 +22,7 @@ const ColorBackground = styled.div`
   }
 `;
 
-const CreatorTemplate = ({ children, handlePopupShow, isOpen }) => {
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0 });
-  }, []);
-
+const CreatorTemplate = ({ children }) => {
   return (
     <StyledWrapper>
       {children}

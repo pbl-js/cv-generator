@@ -43,16 +43,14 @@ const MobileNavigation = ({
   history,
   lastPage
 }) => {
-  const { progress } = progressData;
-
   const nextOrPreviousPage = type => {
     if (type === "+") {
-      if (progress < 5) {
-        handlePageChange(progress + 1);
+      if (progressData < 5) {
+        handlePageChange(progressData + 1);
       } else return;
     } else {
-      if (progress > 1) {
-        handlePageChange(progress - 1);
+      if (progressData > 1) {
+        handlePageChange(progressData - 1);
       }
     }
   };
@@ -60,7 +58,7 @@ const MobileNavigation = ({
   return (
     <div>
       <StyledWrapper>
-        {progress !== 1 ? (
+        {progressData !== 1 ? (
           <StyledButton
             left="true"
             secondary="true"
@@ -69,7 +67,7 @@ const MobileNavigation = ({
             Wstecz
           </StyledButton>
         ) : null}
-        {progress !== 5 ? (
+        {progressData !== 5 ? (
           <StyledButton right="true" onClick={() => nextOrPreviousPage("+")}>
             Dalej
           </StyledButton>

@@ -61,7 +61,7 @@ const Navigation = ({ progressData, handlePageChange, actualPage }) => {
               key={item.name}
               as={NavLink}
               to={item.url}
-              active={progressData.progress >= index + 1 ? "routerError" : null}
+              active={progressData >= index + 1 ? "routerError" : null}
               onClick={() => handlePageChange(index + 1)}
             >
               {iconType(index + 1)}
@@ -69,10 +69,7 @@ const Navigation = ({ progressData, handlePageChange, actualPage }) => {
           );
         })}
         <ProgressBar>
-          <ProgressBar
-            progress={progressData.progress}
-            total={creatorRoutes.length}
-          />
+          <ProgressBar progress={progressData} total={creatorRoutes.length} />
         </ProgressBar>
       </InnerWrapper>
     </StyledWrapper>
@@ -80,7 +77,7 @@ const Navigation = ({ progressData, handlePageChange, actualPage }) => {
 };
 
 Navigation.propTypes = {
-  progressData: PropTypes.object.isRequired,
+  progressData: PropTypes.number.isRequired,
   handlePageChange: PropTypes.func.isRequired,
   actualPage: PropTypes.string.isRequired
 };
