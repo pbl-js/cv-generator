@@ -17,6 +17,22 @@ import Download from "views/Download";
 
 import CVdataContextProvider from "context/CVdataContext";
 
+const CreatorApp = () => {
+  return (
+    <CVdataContextProvider>
+      <CreatorTemplate>
+        <Switch>
+          <Route path={routes.personData} component={PersonData} />
+          <Route path={routes.education} component={Education} />
+          <Route path={routes.experience} component={Experience} />
+          <Route path={routes.template} component={Template} />
+          <Route path={routes.generateCv} component={Download} />
+        </Switch>
+      </CreatorTemplate>
+    </CVdataContextProvider>
+  );
+};
+
 function App() {
   return (
     <>
@@ -26,15 +42,7 @@ function App() {
           <MainTemplate>
             <Switch>
               <Route exact path={routes.home} component={LandingPage} />
-              <CVdataContextProvider>
-                <CreatorTemplate>
-                  <Route path={routes.personData} component={PersonData} />
-                  <Route path={routes.education} component={Education} />
-                  <Route path={routes.experience} component={Experience} />
-                  <Route path={routes.template} component={Template} />
-                  <Route path={routes.generateCv} component={Download} />
-                </CreatorTemplate>
-              </CVdataContextProvider>
+              <Route path={routes.app} component={CreatorApp} />
             </Switch>
           </MainTemplate>
         </Router>

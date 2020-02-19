@@ -1,10 +1,11 @@
 export const routes = {
   home: "/",
-  personData: "/person-data",
-  education: "/education",
-  experience: "/experience",
-  template: "/template",
-  generateCv: "/download"
+  app: "/app",
+  personData: "/app/person-data",
+  education: "/app/education",
+  experience: "/app/experience",
+  template: "/app/template",
+  generateCv: "/app/download"
 };
 // routerError
 export const creatorRoutes = [
