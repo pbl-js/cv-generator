@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { device } from "theme/BreakPoints";
-import { withRouter } from "react-router";
-import { creatorRoutes } from "../routes/routes";
-
-import withPopUp from "hoc/withPopup";
-import ShowCvPopUp from "templates/ShowCvPopUp";
-import Navigation from "components/organisms/Navigation";
-import MobileNavigation from "components/organisms/MobileNavigation";
-import PreviewIcon from "components/atoms/PreviewIcon";
 
 const StyledWrapper = styled.div`
   max-width: 850px;
@@ -30,62 +22,17 @@ const ColorBackground = styled.div`
   }
 `;
 
-const CreatorTemplate = ({
-  history,
-  location,
-  children,
-  handlePopupShow,
-  isOpen
-}) => {
-  const [progressData, setProgressData] = useState({
-    progress: 1
-  });
-
-  // Pobieranie indexu tablicy z listą podstron kreatora
-  const index = creatorRoutes.map(x => x.url).indexOf(location.pathname);
-
-  // Ustawienie zmiennej stanu "progress" na aktualną po odświeżeniu strony
-  useEffect(() => {
-    setProgressData({
-      progress: index + 1
-    });
-  }, []);
-
-  //Ten efekt ustawia adres url w oparciu o zmienną stanu "progress"
-  useEffect(() => {
-    history.push(creatorRoutes[progressData.progress - 1].url);
-  }, [progressData]);
-
-  const handlePageChange = value => {
-    setProgressData({
-      progress: value
-    });
-  };
-
-  // Scroll to top
+const CreatorTemplate = ({ children, handlePopupShow, isOpen }) => {
   useEffect(() => {
     window.scroll({ top: 0, left: 0 });
-  }, [progressData.progress]);
+  }, []);
 
   return (
     <StyledWrapper>
-      <Navigation
-        progressData={progressData}
-        handlePageChange={handlePageChange}
-        actualPage={creatorRoutes[index].name}
-      />
       {children}
-      <MobileNavigation
-        progressData={progressData}
-        handlePageChange={handlePageChange}
-        lastPage={creatorRoutes.length}
-      />
-
-      {progressData.progress < 5 && <PreviewIcon onClick={handlePopupShow} />}
-      {isOpen && <ShowCvPopUp handlePopupShow={handlePopupShow} />}
       <ColorBackground />
     </StyledWrapper>
   );
 };
 
-export default withRouter(withPopUp(CreatorTemplate));
+export default CreatorTemplate;
