@@ -24,6 +24,8 @@ const AddSkills = ({ skills, dispatch }) => {
     title: ""
   });
 
+  const [error, setError] = useState("");
+
   const handleInput = e => {
     setSkillItem({
       title: e.target.value
@@ -32,6 +34,14 @@ const AddSkills = ({ skills, dispatch }) => {
     if (e.key === "enter") {
       console.log("siema");
       addSkill();
+    }
+  };
+
+  const handleBlur = () => {
+    if (skillItem.title.length === 0) {
+      setError("Nazwa umiejętności nie może być pusta");
+    } else {
+      setError("");
     }
   };
 
@@ -68,6 +78,8 @@ const AddSkills = ({ skills, dispatch }) => {
         value={skillItem.title}
         onChange={handleInput}
         keyDown={addSkill}
+        onBlur={handleBlur}
+        error={error}
       />
 
       <Button onClick={addSkill}>Dodaj pozycję</Button>
