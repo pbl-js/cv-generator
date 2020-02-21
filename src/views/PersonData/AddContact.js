@@ -22,7 +22,11 @@ const AddContact = ({
   const { phone, email, website } = contactValue;
 
   const handleBlur = e => {
-    dispatch({ type: SET_CONTACT, name: [e.target.name], value: contactValue[e.target.name] });
+    dispatch({
+      type: SET_CONTACT,
+      name: [e.target.name],
+      value: contactValue[e.target.name]
+    });
   };
 
   const handleChange = e => {
@@ -35,17 +39,17 @@ const AddContact = ({
   return (
     <AddInfoTemplate title="Dane kontaktowe" icon={<Phone />}>
       <InfoBox color="orange">
-        Numer telefonu i adres email to podstawowe dane kontaktowe. Dodatkowym atutem może być również podanie strony
-        internetowej.
+        Numer telefonu i adres email to podstawowe dane kontaktowe. Dodatkowym
+        atutem może być również podanie strony internetowej.
       </InfoBox>
 
       <InfoBox color="blue">
-        Nie martw się, nasza strona nie przechowuje tych danych, nigdy nie dostaniesz od nas żadnej wiadomości na podany
-        adres email!
+        Nie martw się, nasza strona nie przechowuje tych danych, nigdy nie
+        dostaniesz od nas żadnej wiadomości na podany adres email!
       </InfoBox>
 
       <TextInput
-        label="Telefon*"
+        label="Telefon"
         name="phone"
         placeholder="Np: 439 327 237"
         value={phone}
@@ -54,7 +58,7 @@ const AddContact = ({
       />
 
       <TextInput
-        label="Email*"
+        label="Email"
         name="email"
         placeholder="Np: johndoe@darmowecv.pl"
         value={email}
@@ -63,7 +67,7 @@ const AddContact = ({
       />
 
       <TextInput
-        label="Website*"
+        label="Website"
         name="website"
         placeholder="Np: www.programowando.pl"
         value={website}

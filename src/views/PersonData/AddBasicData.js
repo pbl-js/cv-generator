@@ -10,7 +10,10 @@ import { Person } from "styled-icons/octicons/Person";
 
 import { SET_BASICDATA } from "actions/actionTypes";
 
-const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: "" }, dispatch }) => {
+const AddBasicData = ({
+  personData = { photo: "", name: "", surname: "", job: "" },
+  dispatch
+}) => {
   const [formData, setFormData] = useState(personData);
 
   const { photo, name, surname, position } = formData;
@@ -28,14 +31,19 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
 
   const handleBlurEvent = e => {
     console.log("Work");
-    dispatch({ type: SET_BASICDATA, name: [e.target.name], value: formData[e.target.name] });
+    dispatch({
+      type: SET_BASICDATA,
+      name: [e.target.name],
+      value: formData[e.target.name]
+    });
   };
 
   return (
     <AddInfoTemplate title="Dane podstawowe" icon={<Person />}>
       <InfoBox color="orange">
-        Dodaj zdjęcie aby rekruter łatwiej cię zapamiętał oraz skojarzył twoją twarz podczas rozmowy rekrutacyjnej. Nie
-        musisz podawać daty urodzenia oraz dokładnego adresu.
+        Dodaj zdjęcie aby rekruter łatwiej cię zapamiętał oraz skojarzył twoją
+        twarz podczas rozmowy rekrutacyjnej. Nie musisz podawać daty urodzenia
+        oraz dokładnego adresu.
       </InfoBox>
 
       <PhotoUploader
@@ -48,7 +56,7 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
       />
 
       <TextInput
-        label="Imię*"
+        label="Imię"
         name="name"
         placeholder="Np: John"
         value={name}
@@ -57,7 +65,7 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
       />
 
       <TextInput
-        label="Nazwisko*"
+        label="Nazwisko"
         name="surname"
         placeholder="Np: Doe"
         value={surname}
@@ -66,7 +74,7 @@ const AddBasicData = ({ personData = { photo: "", name: "", surname: "", job: ""
       />
 
       <TextInput
-        label="Pozycja na którą aplikujesz*"
+        label="Pozycja na którą aplikujesz"
         name="position"
         placeholder="Np: FrontEnd developer"
         value={position}
